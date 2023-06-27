@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f395cf137a6d154e8f24b00f6fb4efe, type: 3}
+  m_Name: Secmen2
+  m_EditorClassIdentifier: 
+  name: Secmen2
+  dialogue:
+  - "sup m8?\t\t"
+  - im cool thnx. What ya doin here?
+  - aight bro cya later.
+  playerDialogue:
+  - good hbu?
+  - me? nothin. just chillin.
