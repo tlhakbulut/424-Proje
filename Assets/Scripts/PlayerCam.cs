@@ -8,6 +8,8 @@ public class PlayerCam : MonoBehaviour
     public float sensY;
     public Transform orientation;
 
+    DeskCam deskCam;
+
     float xRotation;
     float yRotation;
 
@@ -16,6 +18,9 @@ public class PlayerCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        deskCam = GetComponent<DeskCam>();
+        deskCam.enabled = false;
     }
 
     // Update is called once per frame
@@ -30,5 +35,10 @@ public class PlayerCam : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+    }
+
+    void Ondisable()
+    {
+        deskCam.enabled = true;
     }
 }
