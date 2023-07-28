@@ -19,8 +19,8 @@ public class DialogueManager : MonoBehaviour
     public Text npcDialogueBox;
     public Text playerResponse;
 
-    public Vector3 targetPosition;
-    //public Transform targetPosition;
+    //public Vector3 targetPosition;
+    public Transform targetPosition;
     private bool shouldMove = false;
 
 
@@ -112,9 +112,9 @@ public class DialogueManager : MonoBehaviour
         dialogueUI.SetActive(true); //add dialogue ui to scene
         npcName.text = npc.name;
         npcDialogueBox.text = npc.dialogue[0];
-        Debug.Log("target x: "+targetPosition.x);
-        Debug.Log("target y: " + targetPosition.y);
-        Debug.Log("target z: " + targetPosition.z);
+        Debug.Log("target x: "+targetPosition.position.x);
+        Debug.Log("target y: " + targetPosition.position.y);
+        Debug.Log("target z: " + targetPosition.position.z);
     }
 
     void EndDialogue()
@@ -130,8 +130,9 @@ public class DialogueManager : MonoBehaviour
         if (shouldMove)
         {
             Debug.Log("MOVE");
-            Vector3 direction = targetPosition - this.transform.position;
+            Vector3 direction = targetPosition.position - this.transform.position;
             float distance = direction.magnitude;
+            dialogueUI.SetActive(false);
 
             if (distance > 0.1f)
             {
