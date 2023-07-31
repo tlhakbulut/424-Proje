@@ -16,6 +16,7 @@ public class NpcMovement : MonoBehaviour
     public Transform deskToVote1Transform;
     public Transform deskToVote2Transform;
     public Transform chestTransform;
+    public Transform endTransform;
 
     private Transform targetTransform;
     private Transform votingPlace; //It can be first, second voting place and none
@@ -28,6 +29,8 @@ public class NpcMovement : MonoBehaviour
     private bool votingProcessEnded;
     private bool arrivedAtDesk;
     private bool arrivedAtVoteStop;
+    private bool arrivedAtChest;
+    private bool putVote;
 
     private float rotationSpeed = 8f;
     private float votingPeriod;
@@ -40,6 +43,8 @@ public class NpcMovement : MonoBehaviour
         votingProcessEnded = false;
         arrivedAtDesk = false;
         arrivedAtVoteStop = false;
+        putVote = false;
+        arrivedAtChest = false;
         votingPlace = null;
 
         ObtainVotingRoad();
@@ -67,24 +72,30 @@ public class NpcMovement : MonoBehaviour
         else //The other processes are after reaching the desk
         {
             Debug.Log("WaitToVote");
-            WaitToVote();
+            WaitToVote(); //If there is anyone who is voting and no place is empty, NPC should wait
             if (votingPlace != null && !votingProcessEnded) //If at least one place is available to vote, person will do the further process
             {
+                Debug.Log("Voting Destinationa Gidiliyor");
                 MoveTowardsVotingDestination(); //The place will depend if both are empty or none or just one
                 Vote(); //Voting animation(?) and the voice 
                 //Maybe votingProcessEnded variable should be set to true after a specific amount of time
             }
-            if (votingProcessEnded)
+            if (!arrivedAtChest && votingProcessEnded)
             {
+                Debug.Log("Voting Process Ended");
                 MoveTowardsChest(); //
                 PutVoteInChest();
+            }
+            if (putVote && arrivedAtChest)
+            {
+                GetOutOfTheClassroom();
             }
         }
     }
 
     private void MoveTowardsDesk()
     {
-        Debug.Log("MoveTowardsDesk");
+        //Debug.Log("MoveTowardsDesk");
         targetTransform = deskTransform;
         Move(deskTransform);
         RotateToTarget();
@@ -157,6 +168,16 @@ public class NpcMovement : MonoBehaviour
     {
         Debug.Log("PutVoteInChest");
         //Animation to put person's vote in the chest
+        if (transform.position == chestTransform.position)
+        {
+            Invoke("SetPutVoteTrue", 3f);
+        }
+    }
+
+    void SetPutVoteTrue()
+    {
+        putVote = true;
+        arrivedAtChest = true;
     }
 
     private void MoveTowardsPlayer()
@@ -168,14 +189,14 @@ public class NpcMovement : MonoBehaviour
 
     private void OnWalkStarted()
     {
-        Debug.Log("OnWalkStarted");
+        //Debug.Log("OnWalkStarted");
 
         animator.SetBool("isWalking", true);
     }
 
     private void OnWalkFinished()
     {
-        Debug.Log("OnWalkFinished");
+        //Debug.Log("OnWalkFinished");
         animator.SetBool("isWalking", false);
 
         //Invoke("RotateToTarget", 2f); //PARAMETER NEEDED
@@ -183,11 +204,11 @@ public class NpcMovement : MonoBehaviour
 
     private void HandleWalking() //Tackles the animations depending on arrival at the target position
     {
-        Debug.Log("HandleWalking");
+        //Debug.Log("HandleWalking");
         //Debug.Log("Transform:" + transform.position + " and Target Transform:" + targetTransform.position);
         if (AreTheyInSamePosition(transform, targetTransform))
         {
-            Debug.Log("They are in same position");
+            //Debug.Log("They are in same position");
             OnWalkFinished();
 
             if (targetTransform == deskTransform)
@@ -231,7 +252,7 @@ public class NpcMovement : MonoBehaviour
         if (transform1.position.x - transform2.position.x <= 0.1f && transform1.position.z == transform2.position.z)
             return true;
 
-        Debug.Log("ayni konumda degiller");
+        //Debug.Log("ayni konumda degiller");
         return false;
     }
 
@@ -260,4 +281,10 @@ public class NpcMovement : MonoBehaviour
         }
     }
 
+    void GetOutOfTheClassroom()
+    {
+        targetTransform = endTransform;
+        Move(targetTransform);
+        RotateToTarget();
+    }
 }
