@@ -31,6 +31,7 @@ public class NpcMovement : MonoBehaviour
     private bool arrivedAtVoteStop;
     private bool arrivedAtChest;
     private bool putVote;
+    private bool signedPaper;
 
     private float rotationSpeed = 8f;
     private float votingPeriod;
@@ -45,6 +46,7 @@ public class NpcMovement : MonoBehaviour
         arrivedAtVoteStop = false;
         putVote = false;
         arrivedAtChest = false;
+        signedPaper = false;
         votingPlace = null;
 
         ObtainVotingRoad();
@@ -86,7 +88,11 @@ public class NpcMovement : MonoBehaviour
                 MoveTowardsChest(); //
                 PutVoteInChest();
             }
-            if (putVote && arrivedAtChest)
+            if (putVote && arrivedAtChest && !signedPaper)
+            {
+                GoToSignPaper();
+            }
+            if (putVote && arrivedAtChest && signedPaper)
             {
                 GetOutOfTheClassroom();
             }
@@ -180,6 +186,18 @@ public class NpcMovement : MonoBehaviour
         arrivedAtChest = true;
     }
 
+    void GoToSignPaper()
+    {
+        targetTransform = deskTransform;
+        Move(targetTransform);
+        RotateToTarget();
+
+        if (Input.GetKey(KeyCode.K))
+        {
+            signedPaper = true;
+        }
+    }
+
     private void MoveTowardsPlayer()
     {
         Debug.Log("MoveTowardsPlayer");
@@ -211,7 +229,7 @@ public class NpcMovement : MonoBehaviour
             //Debug.Log("They are in same position");
             OnWalkFinished();
 
-            if (targetTransform == deskTransform)
+            if (targetTransform == deskTransform && !votingProcessEnded)
                 arrivedAtDesk = true;
             else if (targetTransform == votePlaceStop1 || targetTransform == votePlaceStop2) //This bool is used 2 times
                 arrivedAtVoteStop = !arrivedAtVoteStop;

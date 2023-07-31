@@ -4432,6 +4432,7 @@ MonoBehaviour:
   deskToVote1Transform: {fileID: 53523226}
   deskToVote2Transform: {fileID: 564988472}
   chestTransform: {fileID: 1143904600}
+  endTransform: {fileID: 1625420633}
 --- !u!114 &518566571
 MonoBehaviour:
   m_ObjectHideFlags: 0
