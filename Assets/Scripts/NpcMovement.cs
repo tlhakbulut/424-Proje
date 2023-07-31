@@ -25,6 +25,7 @@ public class NpcMovement : MonoBehaviour
     private bool arrivedAtDesk;
 
     private float rotationSpeed = 8f;
+    private float votingPeriod;
     private Vector3 targetRotation;
 
     private void Awake()
@@ -34,6 +35,8 @@ public class NpcMovement : MonoBehaviour
         votingProcessEnded = false;
         arrivedAtDesk = false;
         votingPlace = null;
+
+        votingPeriod = Random.Range(5f, 15f);
     }
 
     private void Start()
@@ -91,9 +94,13 @@ public class NpcMovement : MonoBehaviour
     {
         Debug.Log("Vote");
         if (AreTheyInSamePosition(transform, targetTransform)) //For now, it's only when arrived at the destination
-            votingProcessEnded = true;
-        
-        //Voice should be played
+        {
+            votingPeriod -= Time.deltaTime;
+            //Play the sound of voting
+
+            if (votingPeriod <= 0f)
+                votingProcessEnded = true;
+        }
     }
 
     private void MoveTowardsChest()
@@ -180,6 +187,7 @@ public class NpcMovement : MonoBehaviour
         if (transform1.position.x - transform2.position.x <= 0.1f && transform1.position.z == transform2.position.z)
             return true;
 
+        Debug.Log("ayni konumda degiller");
         return false;
     }
 
