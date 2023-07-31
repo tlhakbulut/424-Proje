@@ -13,16 +13,21 @@ public class NpcMovement : MonoBehaviour
 
     public Transform playerTransform;
     public Transform deskTransform;
-    public Transform votePlaceTransform1;
-    public Transform votePlaceTransform2;
+    public Transform deskToVote1Transform;
+    public Transform deskToVote2Transform;
     public Transform chestTransform;
 
     private Transform targetTransform;
     private Transform votingPlace; //It can be first, second voting place and none
+    private Transform votePlaceTransform1;
+    private Transform votePlaceTransform2;
+    private Transform votePlaceStop1;
+    private Transform votePlaceStop2;
 
     private bool firstStandIsEmpty, secondStandIsEmpty;
     private bool votingProcessEnded;
     private bool arrivedAtDesk;
+    private bool arrivedAtVoteStop;
 
     private float rotationSpeed = 8f;
     private float votingPeriod;
@@ -34,7 +39,10 @@ public class NpcMovement : MonoBehaviour
         secondStandIsEmpty = true;
         votingProcessEnded = false;
         arrivedAtDesk = false;
+        arrivedAtVoteStop = false;
         votingPlace = null;
+
+        ObtainVotingRoad();
 
         votingPeriod = Random.Range(5f, 15f);
     }
@@ -62,7 +70,7 @@ public class NpcMovement : MonoBehaviour
             WaitToVote();
             if (votingPlace != null && !votingProcessEnded) //If at least one place is available to vote, person will do the further process
             {
-                MoveTowardsVotingDestination(votingPlace); //The place will depend if both are empty or none or just one
+                MoveTowardsVotingDestination(); //The place will depend if both are empty or none or just one
                 Vote(); //Voting animation(?) and the voice 
                 //Maybe votingProcessEnded variable should be set to true after a specific amount of time
             }
@@ -82,11 +90,29 @@ public class NpcMovement : MonoBehaviour
         RotateToTarget();
     }
 
-    private void MoveTowardsVotingDestination(Transform votingPlace)
+    private void MoveTowardsVotingDestination()
     {
         Debug.Log("MoveTowardsVotingDestination");
-        targetTransform = votingPlace;
-        Move(votingPlace);
+        if (votingPlace == votePlaceTransform1)
+        {
+            if(!arrivedAtVoteStop)
+            {
+                targetTransform = votePlaceStop1;
+            }
+            else
+                targetTransform = votingPlace;
+        }
+        else if (votingPlace == votePlaceTransform2)
+        {
+            if (!arrivedAtVoteStop)
+            {
+                targetTransform = votePlaceStop2;
+            }
+            else
+                targetTransform = votingPlace;
+        }
+
+        Move(targetTransform); //votingPlace idi burasi
         RotateToTarget();
     }
 
@@ -106,8 +132,24 @@ public class NpcMovement : MonoBehaviour
     private void MoveTowardsChest()
     {
         Debug.Log("MoveTowardsChest");
-        targetTransform = chestTransform;
-        Move(chestTransform);
+
+        if (votingPlace == votePlaceTransform1)
+        {
+            if (arrivedAtVoteStop)
+                targetTransform = votePlaceStop1;
+            else
+                targetTransform = chestTransform;
+        }
+        else
+        {
+            if (arrivedAtVoteStop)
+                targetTransform = votePlaceStop2;
+            else
+                targetTransform = chestTransform;
+        }   
+        
+        //targetTransform = chestTransform;
+        Move(targetTransform);
         RotateToTarget();
     }
 
@@ -150,6 +192,8 @@ public class NpcMovement : MonoBehaviour
 
             if (targetTransform == deskTransform)
                 arrivedAtDesk = true;
+            else if (targetTransform == votePlaceStop1 || targetTransform == votePlaceStop2) //This bool is used 2 times
+                arrivedAtVoteStop = !arrivedAtVoteStop;
         }
         else
         {
@@ -195,6 +239,25 @@ public class NpcMovement : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
         HandleWalking();
+    }
+
+    void ObtainVotingRoad()
+    {
+        foreach (Transform place in deskToVote1Transform)
+        {
+            if (place.name == "NearVoting1")
+                votePlaceStop1 = place;
+            else
+                votePlaceTransform1 = place;
+        }
+
+        foreach (Transform place in deskToVote2Transform)
+        {
+            if (place.name == "NearVoting2")
+                votePlaceStop2 = place;
+            else
+                votePlaceTransform2 = place;
+        }
     }
 
 }
