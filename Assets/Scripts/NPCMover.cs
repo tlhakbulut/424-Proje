@@ -79,53 +79,53 @@ public class NPCMover : MonoBehaviour
 
         if (movingToDesk && !arrivedAtDesk)
         {
-            //Debug.Log(gameObject.name + " masaya geliyor");
+            Debug.Log(gameObject.name + " masaya geliyor");
             MoveTowardsDesk();
         }
         else if (arrivedAtDesk && !talkedToPlayer)
         {
-            //Debug.Log(gameObject.name + " oyuncuyla konusuyor");
+            Debug.Log(gameObject.name + " oyuncuyla konusuyor");
             TalkToPlayer(); //Let this method handle the bool value talkedToPlayer and permittedToVote
             //(for example, after the chat, press Enter and let talkedToPlayer be true)
         }
         else if (permittedToVote && !arrivedAtVotePlace && !votingProcessEnded)
         {
-            //Debug.Log(gameObject.name + " oy verme yerine gidiyor");
+            Debug.Log(gameObject.name + " oy verme yerine gidiyor");
             MoveTowardsVotingDestination(); //make votingProcessEnded, arrivedAtVoteStop true after some seconds (or votinProcessEnd may be useful)
         }
         else if (talkedToPlayer && !permittedToVote)
         {
-            //Debug.Log(gameObject.name + " siniftan cikiyor");
+            Debug.Log(gameObject.name + " siniftan cikiyor");
             GetOutOfTheClassroom();
         }
         else if (permittedToVote && arrivedAtVotePlace && !votingProcessEnded)
         {
-            //Debug.Log(gameObject.name + " oy atiyor");
+            Debug.Log(gameObject.name + " oy atiyor");
             Vote();
         }
         else if (arrivedAtVotePlace && !arrivedAtChest && votingProcessEnded && movingToChest)
         {
-            //Debug.Log(gameObject.name + " sandiga gidiyor");
+            Debug.Log(gameObject.name + " sandiga gidiyor");
             MoveTowardsChest();
         }
         else if (arrivedAtChest && !putVote)
         {
-            //Debug.Log(gameObject.name + " sandiga oy atiyor");
+            Debug.Log(gameObject.name + " sandiga oy atiyor");
             PutVoteInChest();
         }
         else if (arrivedAtChest && putVote && !arrivedBackAtDesk && movingBackToDesk)
         {
-            //Debug.Log(gameObject.name + " imza atmak icin masaya geliyor");
+            Debug.Log(gameObject.name + " imza atmak icin masaya geliyor");
             MoveTowardsDesk();
         }
         else if (arrivedBackAtDesk && !signedPaper)
         {
-            //Debug.Log(gameObject.name + " imza atiyor");
+            Debug.Log(gameObject.name + " imza atiyor");
             SignPaper(); //Let this method handle the bool value signedPaper
         }
         else if (signedPaper)
         {
-            //Debug.Log(gameObject.name + " siniftan cikiyor");
+            Debug.Log(gameObject.name + " siniftan cikiyor");
             GetOutOfTheClassroom();
         }
     }
@@ -212,7 +212,7 @@ public class NPCMover : MonoBehaviour
         //If the NPC talked to the player, the voting place is decided
         else if (IsAt(deskTransform) && talkedToPlayer && permittedToVote && votingPlace == null)
         {
-            //Debug.Log(gameObject.name + "3");
+            Debug.Log(gameObject.name + "3");
             if (votePlaceController1.isEmpty)
             {
                 votingPlace = votePlaceTransform1;
@@ -230,6 +230,12 @@ public class NPCMover : MonoBehaviour
 
             deskPointController.isEmpty = true;
         }
+        //The NPC is not allowed to vote, so s/he leaves
+        else if (IsAt(deskTransform) && talkedToPlayer && !permittedToVote && !finishedProcess)
+        {
+            finishedProcess = true;
+            deskPointController.currentCount -= 1;
+        }
         //If NPC arrived at the stop on his/her way to the voting place
         else if (votingPlace != null && IsAt(votingPlaceStop) && !arrivedAtVoteStop)
         {
@@ -239,7 +245,7 @@ public class NPCMover : MonoBehaviour
         //If the NPC arrived at voting place, is ready to move to chest after voting
         else if (votingPlace != null && IsAt(votingPlace) && !votingProcessEnded && !arrivedAtVotePlace && chestPointController.isEmpty)
         {
-            //Debug.Log(gameObject.name + "5");
+            Debug.Log(gameObject.name + "5");
             arrivedAtVotePlace = true;
 
             if (votingPlace == votePlaceTransform1)
@@ -256,14 +262,14 @@ public class NPCMover : MonoBehaviour
         //NPC's first point on the way to the chest
         else if (votingProcessEnded && IsAt(votingPlaceStop) && !arrivedBackAtVoteStop)
         {
-            //Debug.Log(gameObject.name + "5.2");
+            Debug.Log(gameObject.name + "5.2");
             arrivedBackAtVoteStop = true;
             chestPointController.isEmpty = false;
         }
         //NPC arrives at the chest in order to vote
         else if (votingProcessEnded && arrivedBackAtVoteStop && IsAt(chestTransform) && !arrivedAtChest)
         {
-            //Debug.Log(gameObject.name + "6");
+            Debug.Log(gameObject.name + "6");
             arrivedAtChest = true;
         }
         else if (IsAt(chestTransform) && deskPointController.isEmpty && arrivedAtChest)
@@ -273,13 +279,14 @@ public class NPCMover : MonoBehaviour
         }
         else if (IsAt(deskTransform) && arrivedAtChest && !arrivedBackAtDesk)
         {
-            //Debug.Log(gameObject.name + "7");
+            Debug.Log(gameObject.name + "7");
             arrivedBackAtDesk = true;
         }
         else if (signedPaper && !finishedProcess)
         {
             deskPointController.isEmpty = true;
             finishedProcess = true;
+            Invoke("DecreasePeopleCount", 2f);
         }
         //Signing is already controlled by the method SignPaper
     }
@@ -303,9 +310,11 @@ public class NPCMover : MonoBehaviour
 
     private void MoveTowardsVotingDestination()
     {
+        Debug.Log("MoveTowardsVotingDestination");
         //If the place that the NPC will vote is decided
         if (votingPlace != null)
         {
+            Debug.Log("voting place null degil");
             if (!arrivedAtVoteStop)
             {
                 targetTransform = votingPlaceStop;
@@ -387,6 +396,11 @@ public class NPCMover : MonoBehaviour
         RotateToTarget();
     }
 
+    private void DecreasePeopleCount()
+    {
+        deskPointController.currentCount -= 1;
+    }
+
     private void Move(Transform targetTransform) //Moves to the current target position and handles the animation of walking
     {
         transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
@@ -435,6 +449,7 @@ public class NPCMover : MonoBehaviour
     //If the current position of the NPC is same as the given place
     private bool IsAt(Transform place)
     {
+        Debug.Log(place.name + "'de mi? " + (transform.position == place.position));
         return transform.position == place.position;
     }
 }
