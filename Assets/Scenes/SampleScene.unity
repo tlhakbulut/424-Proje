@@ -7173,6 +7173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 937450638}
+  - component: {fileID: 937450639}
   m_Layer: 0
   m_Name: Voting Place1
   m_TagString: Untagged
@@ -7195,6 +7196,19 @@ Transform:
   m_Father: {fileID: 53523226}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &937450639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937450637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7218350228cc64f982638db6b9163b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEmpty: 0
 --- !u!1 &942250993
 GameObject:
   m_ObjectHideFlags: 0
@@ -9222,6 +9236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1126418548}
+  - component: {fileID: 1126418549}
   m_Layer: 0
   m_Name: Desk1
   m_TagString: Untagged
@@ -9244,6 +9259,20 @@ Transform:
   m_Father: {fileID: 2008116645}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1126418549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126418547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858056ba9dd19f343a4a126b39d83409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEmpty: 0
+  currentCount: 0
 --- !u!1001 &1133615648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9311,6 +9340,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       propertyPath: m_Name
       value: Leonard
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9531,6 +9564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1143904600}
+  - component: {fileID: 1143904602}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -9553,6 +9587,19 @@ Transform:
   m_Father: {fileID: 2008116645}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1143904602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143904599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862f28d75a4e23f44a90e37666a28aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEmpty: 0
 --- !u!1 &1144027369
 GameObject:
   m_ObjectHideFlags: 0
@@ -11348,6 +11395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1368439588}
+  - component: {fileID: 1368439589}
   m_Layer: 0
   m_Name: Voting Place2
   m_TagString: Untagged
@@ -11370,6 +11418,19 @@ Transform:
   m_Father: {fileID: 564988472}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1368439589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368439587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7218350228cc64f982638db6b9163b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEmpty: 0
 --- !u!1001 &1379028030
 PrefabInstance:
   m_ObjectHideFlags: 0

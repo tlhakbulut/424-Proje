@@ -2,27 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcMovement : MonoBehaviour
+public class NPCMover : MonoBehaviour
 {
     //NOT: YANLIŞLIKLA DIALOGUEMANAGERDAKİ PLAYER YERİNE NORMAL PLAYERİ KOYDUM
-    public float speed = 5f;
-    private Transform player;
-    public Transform spawnPoint;
-    private Animator animator;
-    private DialogueManager dialogueManager;
+    [SerializeField] float speed = 5f;
 
-    private DeskPointController deskPointController; //Controls if an NPC should wait for the other or not
-    private VotePlaceController votePlaceController1; //If there is someone in the first place, controls NPC behaviour
-    private VotePlaceController votePlaceController2; //If there is someone in the second place, controls NPC behaviour
-    private ChestPointController chestPointController;
-
-    public Transform playerTransform;
+    public Transform spawnPointTransform;
     public Transform deskTransform;
     public Transform deskToVote1Transform;
     public Transform deskToVote2Transform;
     public Transform chestTransform;
     public Transform endTransform;
 
+    private DeskPointController deskPointController; //Controls if an NPC should wait for the other or not
+    private VotePlaceController votePlaceController1; //If there is someone in the first place, controls NPC behaviour
+    private VotePlaceController votePlaceController2; //If there is someone in the second place, controls NPC behaviour
+    private ChestPointController chestPointController;
+
+    private Animator animator;
+    private DialogueManager dialogueManager;
+
+    //The points that NPC is moving towards
     private Transform targetTransform;
     private Transform votingPlace; //It can be first, second voting place and none
     private Transform votePlaceTransform1;
@@ -30,15 +30,21 @@ public class NpcMovement : MonoBehaviour
     private Transform votePlaceStop1;
     private Transform votePlaceStop2;
 
-    private bool votingProcessEnded;
+    //The values to control the voting process of an NPC
     private bool arrivedAtDesk;
-    private bool arrivedAtVoteStop;
-    private bool arrivedAtChest;
-    private bool putVote;
-    private bool signedPaper;
-    private bool movingToDesk;
+    private bool talkedToPlayer;
+    private bool permittedToVote;
     private bool movingToVotePlace1;
     private bool movingToVotePlace2;
+    private bool arrivedAtVoteStop;
+    private bool votingProcessEnded;
+    private bool arrivedAtChest;
+    private bool putVote;
+    private bool arrivedBackAtDesk;
+    private bool signedPaper;
+
+
+    private bool movingToDesk;
 
     private bool adjustedCount; //to increase/decrease the count of people in the classroom
 
@@ -48,6 +54,8 @@ public class NpcMovement : MonoBehaviour
 
     private void Awake()
     {
+        SpawnNPC();
+
         votingProcessEnded = false;
         arrivedAtDesk = false;
         arrivedAtVoteStop = false;
@@ -69,9 +77,7 @@ public class NpcMovement : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("go");
-        transform.position = spawnPoint.position;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        
 
         animator = GetComponent<Animator>();
         dialogueManager = GetComponent<DialogueManager>();
@@ -85,43 +91,40 @@ public class NpcMovement : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Classroomdaki kisi sayisi:" + deskPointController.currentCount);
+        ManageValues(); //Changes the bool and other values according to the current situation of NPC
 
-        if (deskPointController.isEmpty) //If the desk is empty, NPC moves to desk
-            movingToDesk = true;
-
-        if (deskPointController.currentCount <= 1 && !arrivedAtDesk && movingToDesk) //First step is arriving at desk
+        if (isMovingToDesk && !arrivedAtDesk)
         {
             MoveTowardsDesk();
-            MakeClassroomBusy();
         }
-        
-        //Player and the person will talk, then player will control the person's information and ask her/him to go and vote
-        else if (arrivedAtDesk)//The other processes are after reaching the desk
+        else if (arrivedAtDesk && !talkedToPlayer)
         {
-            Debug.Log("WaitToVote");
-            WaitToVote(); //If there is anyone who is voting and no place is empty, NPC should wait
-            if (votingPlace != null && !votingProcessEnded) //If at least one place is available to vote, person will do the further process
-            {
-                Debug.Log("Voting Destinationa Gidiliyor");
-                MoveTowardsVotingDestination(); //The place will depend if both are empty or none or just one
-                Vote(); //Voting animation(?) and the voice 
-                //Maybe votingProcessEnded variable should be set to true after a specific amount of time
-            }
-            if (!arrivedAtChest && votingProcessEnded)
-            {
-                Debug.Log("Voting Process Ended");
-                MoveTowardsChest(); //
-                PutVoteInChest();
-            }
-            if (deskPointController.isEmpty && putVote && arrivedAtChest && !signedPaper)
-            {
-                GoToSignPaper();
-            }
-            if (putVote && arrivedAtChest && signedPaper)
-            {
-                GetOutOfTheClassroom();
-            }
+            TalkToPlayer();
+        }
+        else if (talkedToPlayer && permittedToVote && !arrivedAtVoteStop)
+        {
+            MoveTowardsVotingDestination(); //make arrivedAtVoteStop true after some seconds (or votinProcessEnd may be useful)
+        }
+        else if (talkedToPlayer && !permittedToVote)
+        {
+            GetOutOfTheClassroom();
+        }
+        else if (arrivedAtVoteStop && !arrivedAtChest)
+        {
+            MoveTowardsChest();
+            PutVoteInChest();
+        }
+        else if (arrivedAtChest && !arrivedBackAtDesk)
+        {
+            MoveTowardsDesk();
+        }
+        else if (arrivedBackAtDesk && !signedPaper)
+        {
+            GoToSignPaper();
+        }
+        else if (signedPaper)
+        {
+            GetOutOfTheClassroom();
         }
     }
 
@@ -250,13 +253,6 @@ public class NpcMovement : MonoBehaviour
         }
     }
 
-    private void MoveTowardsPlayer()
-    {
-        Debug.Log("MoveTowardsPlayer");
-
-        Move(playerTransform);
-    }
-
     private void OnWalkStarted()
     {
         //Debug.Log("OnWalkStarted");
@@ -375,5 +371,34 @@ public class NpcMovement : MonoBehaviour
             deskPointController.currentCount += 1;
             adjustedCount = true;
         }
+    }
+
+    //-----------------------------------Methods for Awake---------------------------------------
+    //Initializes all the values suitable for starting
+    private void SpawnNPC()
+    {
+        transform.position = spawnPointTransform.position;
+    }
+
+    private void InitializeValues()
+    {
+        arrivedAtDesk = false;
+        talkedToPlayer = false;
+        permittedToVote = false;
+        movingToVotePlace1 = false;
+        movingToVotePlace2 = false;
+        arrivedAtVoteStop = false;
+        votingProcessEnded = false;
+        arrivedAtChest = false;
+        putVote = false;
+        arrivedBackAtDesk = false;
+        signedPaper = false;
+    }
+    //-------------------------------End of methods for Awake------------------------------------
+
+    //----------------------------------Methods for Update------------------------------------
+    private void ManageValues()
+    {
+
     }
 }
