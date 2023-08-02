@@ -4411,6 +4411,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 518566571}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 518566576}
   m_SourcePrefab: {fileID: 100100000, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
 --- !u!1 &518566569 stripped
 GameObject:
@@ -4424,7 +4427,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518566569}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a583c563bcef12a4ab5d22be8a9b4350, type: 3}
   m_Name: 
@@ -4500,6 +4503,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &518566576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518566569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce7d52c54f50e64994b2ce00b8a91c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  spawnPointTransform: {fileID: 1204876353}
+  deskTransform: {fileID: 1126418548}
+  deskToVote1Transform: {fileID: 53523226}
+  deskToVote2Transform: {fileID: 564988472}
+  chestTransform: {fileID: 1143904600}
+  endTransform: {fileID: 1625420633}
 --- !u!4 &523793672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4574124760409694, guid: cd74bf6cea4234840b01646a5b3f339a, type: 3}
@@ -9360,6 +9382,9 @@ PrefabInstance:
       addedObject: {fileID: 1133615652}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1133615655}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1133615654}
   m_SourcePrefab: {fileID: 100100000, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
 --- !u!1 &1133615649 stripped
@@ -9416,7 +9441,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133615649}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a583c563bcef12a4ab5d22be8a9b4350, type: 3}
   m_Name: 
@@ -9450,6 +9475,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1133615655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133615649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce7d52c54f50e64994b2ce00b8a91c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  spawnPointTransform: {fileID: 1204876353}
+  deskTransform: {fileID: 1126418548}
+  deskToVote1Transform: {fileID: 53523226}
+  deskToVote2Transform: {fileID: 564988472}
+  chestTransform: {fileID: 1143904600}
+  endTransform: {fileID: 1625420633}
 --- !u!1 &1136203835
 GameObject:
   m_ObjectHideFlags: 0

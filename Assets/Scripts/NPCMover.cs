@@ -27,306 +27,138 @@ public class NPCMover : MonoBehaviour
     private Transform votingPlace; //It can be first, second voting place and none
     private Transform votePlaceTransform1;
     private Transform votePlaceTransform2;
+    private Transform votingPlaceStop;
     private Transform votePlaceStop1;
     private Transform votePlaceStop2;
 
     //The values to control the voting process of an NPC
     private bool arrivedAtDesk;
+    private bool movingToDesk;
     private bool talkedToPlayer;
     private bool permittedToVote;
-    private bool movingToVotePlace1;
-    private bool movingToVotePlace2;
     private bool arrivedAtVoteStop;
+    private bool arrivedAtVotePlace;
     private bool votingProcessEnded;
+    private bool arrivedBackAtVoteStop;
+    private bool movingToChest;
     private bool arrivedAtChest;
     private bool putVote;
+    private bool movingBackToDesk;
     private bool arrivedBackAtDesk;
     private bool signedPaper;
-
-
-    private bool movingToDesk;
-
-    private bool adjustedCount; //to increase/decrease the count of people in the classroom
+    private bool finishedProcess;
 
     private float rotationSpeed = 8f;
-    private float votingPeriod;
     private Vector3 targetRotation;
 
     private void Awake()
     {
         SpawnNPC();
-
-        votingProcessEnded = false;
-        arrivedAtDesk = false;
-        arrivedAtVoteStop = false;
-        putVote = false;
-        arrivedAtChest = false;
-        signedPaper = false;
-        votingPlace = null;
-
-        movingToDesk = false;
-        movingToVotePlace1 = false;
-        movingToVotePlace2 = false;
-
-        adjustedCount = false;
-
+        InitializeValues();
         ObtainVotingRoad();
-
-        votingPeriod = Random.Range(5f, 15f);
     }
 
     private void Start()
     {
-        
-
         animator = GetComponent<Animator>();
         dialogueManager = GetComponent<DialogueManager>();
         targetTransform = dialogueManager.targetPosition;
 
-        deskPointController = deskTransform.GetComponent<DeskPointController>();
-        votePlaceController1 = votePlaceTransform1.GetComponent<VotePlaceController>();
-        votePlaceController2 = votePlaceTransform2.GetComponent<VotePlaceController>();
-        chestPointController = chestTransform.GetComponent<ChestPointController>();
+        GetPointControllers();
     }
 
     private void Update()
     {
+        //Debug.Log("desk su an bos:" + deskPointController.isEmpty);
+        //Debug.Log("vote place 1 su an bos:" + votePlaceController1.isEmpty);
+        //Debug.Log("vote place 2 su an bos:" + votePlaceController2.isEmpty);
+        Debug.Log("sandik su an bos:" + chestPointController.isEmpty);
+        //Debug.Log("Oy yerine vardi:" + arrivedAtVotePlace + " sandiga varmadi:" + !arrivedAtChest + " oy verme islemi bitti:" + votingProcessEnded + " sandiga gidiyo" + movingToChest);
+
         ManageValues(); //Changes the bool and other values according to the current situation of NPC
 
-        if (isMovingToDesk && !arrivedAtDesk)
+        if (movingToDesk && !arrivedAtDesk)
         {
+            //Debug.Log(gameObject.name + " masaya geliyor");
             MoveTowardsDesk();
         }
         else if (arrivedAtDesk && !talkedToPlayer)
         {
-            TalkToPlayer();
+            //Debug.Log(gameObject.name + " oyuncuyla konusuyor");
+            TalkToPlayer(); //Let this method handle the bool value talkedToPlayer and permittedToVote
+            //(for example, after the chat, press Enter and let talkedToPlayer be true)
         }
-        else if (talkedToPlayer && permittedToVote && !arrivedAtVoteStop)
+        else if (permittedToVote && !arrivedAtVotePlace && !votingProcessEnded)
         {
-            MoveTowardsVotingDestination(); //make arrivedAtVoteStop true after some seconds (or votinProcessEnd may be useful)
+            //Debug.Log(gameObject.name + " oy verme yerine gidiyor");
+            MoveTowardsVotingDestination(); //make votingProcessEnded, arrivedAtVoteStop true after some seconds (or votinProcessEnd may be useful)
         }
         else if (talkedToPlayer && !permittedToVote)
         {
+            //Debug.Log(gameObject.name + " siniftan cikiyor");
             GetOutOfTheClassroom();
         }
-        else if (arrivedAtVoteStop && !arrivedAtChest)
+        else if (permittedToVote && arrivedAtVotePlace && !votingProcessEnded)
         {
+            //Debug.Log(gameObject.name + " oy atiyor");
+            Vote();
+        }
+        else if (arrivedAtVotePlace && !arrivedAtChest && votingProcessEnded && movingToChest)
+        {
+            //Debug.Log(gameObject.name + " sandiga gidiyor");
             MoveTowardsChest();
+        }
+        else if (arrivedAtChest && !putVote)
+        {
+            //Debug.Log(gameObject.name + " sandiga oy atiyor");
             PutVoteInChest();
         }
-        else if (arrivedAtChest && !arrivedBackAtDesk)
+        else if (arrivedAtChest && putVote && !arrivedBackAtDesk && movingBackToDesk)
         {
+            //Debug.Log(gameObject.name + " imza atmak icin masaya geliyor");
             MoveTowardsDesk();
         }
         else if (arrivedBackAtDesk && !signedPaper)
         {
-            GoToSignPaper();
+            //Debug.Log(gameObject.name + " imza atiyor");
+            SignPaper(); //Let this method handle the bool value signedPaper
         }
         else if (signedPaper)
         {
+            //Debug.Log(gameObject.name + " siniftan cikiyor");
             GetOutOfTheClassroom();
         }
     }
 
-    private void MoveTowardsDesk()
+    //-----------------------------------Methods for Awake---------------------------------------
+    //Initializes all the values suitable for starting
+    private void SpawnNPC()
     {
-        //Debug.Log("MoveTowardsDesk");
-        targetTransform = deskTransform;
-        Move(deskTransform);
-        RotateToTarget();
-        deskPointController.isEmpty = false; //No one can move to the desk unless this NPC leaves there
-        movingToDesk = true;
+        transform.position = spawnPointTransform.position;
     }
 
-    private void MoveTowardsVotingDestination()
+    private void InitializeValues()
     {
-        Debug.Log("MoveTowardsVotingDestination");
+        arrivedAtDesk = false;
+        movingToDesk = false;
+        talkedToPlayer = false;
+        permittedToVote = false;
+        arrivedAtVoteStop = false;
+        arrivedAtVotePlace = false;
+        votingProcessEnded = false;
+        arrivedBackAtVoteStop = false;
+        movingToChest = false;
+        arrivedAtChest = false;
+        putVote = false;
+        movingBackToDesk = false;
+        arrivedBackAtDesk = false;
+        signedPaper = false;
+        finishedProcess = false;
 
-        deskPointController.isEmpty = true;
-
-        if (votingPlace == votePlaceTransform1)
-        {
-            votePlaceController1.isEmpty = false;
-            movingToVotePlace1 = true;
-
-            if(!arrivedAtVoteStop)
-            {
-                targetTransform = votePlaceStop1;
-            }
-            else
-                targetTransform = votingPlace;
-        }
-        else if (votingPlace == votePlaceTransform2)
-        {
-            votePlaceController2.isEmpty = false;
-            movingToVotePlace2 = true;
-            
-            if (!arrivedAtVoteStop)
-            {
-                targetTransform = votePlaceStop2;
-            }
-            else
-                targetTransform = votingPlace;
-        }
-
-        if (movingToVotePlace1 || movingToVotePlace2)
-        {
-            Move(targetTransform); //votingPlace idi burasi
-            RotateToTarget();
-        }
+        votingPlace = null;
+        votingPlaceStop = null;
     }
-
-    private void Vote()
-    {
-        Debug.Log("Vote");
-        if (AreTheyInSamePosition(transform, targetTransform)) //For now, it's only when arrived at the destination
-        {
-            votingPeriod -= Time.deltaTime;
-            //Play the sound of voting
-
-            if (votingPeriod <= 0f)
-                votingProcessEnded = true;
-        }
-    }
-
-    private void MoveTowardsChest()
-    {
-        Debug.Log("MoveTowardsChest");
-
-        if (chestPointController.isEmpty) //If the chest is available, NPC moves towards it
-        {
-            chestPointController.isEmpty = false;
-
-            if (votingPlace == votePlaceTransform1)
-            {
-                votePlaceController1.isEmpty = true;
-
-                if (arrivedAtVoteStop)
-                    targetTransform = votePlaceStop1;
-                else
-                    targetTransform = chestTransform;
-            }
-            else
-            {
-                votePlaceController2.isEmpty = true;
-
-                if (arrivedAtVoteStop)
-                    targetTransform = votePlaceStop2;
-                else
-                    targetTransform = chestTransform;
-            }   
-            
-            //targetTransform = chestTransform;
-            Move(targetTransform);
-            RotateToTarget();
-        }
-    }
-
-    private void PutVoteInChest()
-    {
-        Debug.Log("PutVoteInChest");
-        //Animation to put person's vote in the chest
-        if (transform.position == chestTransform.position)
-        {
-            Invoke("SetPutVoteTrue", 3f);
-        }
-    }
-
-    void SetPutVoteTrue()
-    {
-        putVote = true;
-        arrivedAtChest = true;
-    }
-
-    void GoToSignPaper()
-    {
-        chestPointController.isEmpty = true;
-        deskPointController.isEmpty = false;
-
-        targetTransform = deskTransform;
-        Move(targetTransform);
-        RotateToTarget();
-
-        if (Input.GetKey(KeyCode.K))
-        {
-            signedPaper = true;
-        }
-    }
-
-    private void OnWalkStarted()
-    {
-        //Debug.Log("OnWalkStarted");
-
-        animator.SetBool("isWalking", true);
-    }
-
-    private void OnWalkFinished()
-    {
-        //Debug.Log("OnWalkFinished");
-        animator.SetBool("isWalking", false);
-
-        //Invoke("RotateToTarget", 2f); //PARAMETER NEEDED
-    }
-
-    private void HandleWalking() //Tackles the animations depending on arrival at the target position
-    {
-        //Debug.Log("HandleWalking");
-        //Debug.Log("Transform:" + transform.position + " and Target Transform:" + targetTransform.position);
-        if (AreTheyInSamePosition(transform, targetTransform))
-        {
-            //Debug.Log("They are in same position");
-            OnWalkFinished();
-
-            if (targetTransform == deskTransform && !votingProcessEnded)
-                arrivedAtDesk = true;
-            else if (targetTransform == votePlaceStop1 || targetTransform == votePlaceStop2) //This bool is used 2 times
-                arrivedAtVoteStop = !arrivedAtVoteStop;
-        }
-        else
-        {
-            OnWalkStarted();
-        } 
-    }
-
-    private void RotateToTarget() //Looks at the current target and rotates towards it
-    {
-        //animator.SetBool("isTurning", true);
-
-        Vector3 directionToTarget = targetTransform.position - transform.position;
-        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
-        transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
-    }
-
-    private void WaitToVote() //The person who is gonna vote should wait for one of the stands to be empty
-    {
-        if (votePlaceController1.isEmpty) //Goes to the place which is empty
-        {
-            votingPlace = votePlaceTransform1;
-            Debug.Log("Vote yeri 1");
-        }
-        else if (votePlaceController2.isEmpty)
-        {
-            votingPlace = votePlaceTransform2;
-            Debug.Log("Vote yeri 2");
-        }
-    }
-
-    //Returns if the two given transforms have the same x and z position values
-    private bool AreTheyInSamePosition(Transform transform1, Transform transform2)
-    {
-        if (transform1.position.x - transform2.position.x <= 0.1f && transform1.position.z == transform2.position.z)
-            return true;
-
-        //Debug.Log("ayni konumda degiller");
-        return false;
-    }
-
-    private void Move(Transform targetTransform) //Moves to the current target position and handles the animation of walking
-    {
-        transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
-        HandleWalking();
-    }
-
+    
     void ObtainVotingRoad()
     {
         foreach (Transform place in deskToVote1Transform)
@@ -345,60 +177,264 @@ public class NPCMover : MonoBehaviour
                 votePlaceTransform2 = place;
         }
     }
+    //-------------------------------End of methods for Awake------------------------------------
+
+    //--------------------------------------Methods for Start-------------------------------------
+    //Obtains the scripts of the points to be able to control the electors' behaviours in the classroom
+    private void GetPointControllers()
+    {
+        deskPointController = deskTransform.GetComponent<DeskPointController>();
+        votePlaceController1 = votePlaceTransform1.GetComponent<VotePlaceController>();
+        votePlaceController2 = votePlaceTransform2.GetComponent<VotePlaceController>();
+        chestPointController = chestTransform.GetComponent<ChestPointController>();
+    }
+    //-------------------------------End of methods for Start------------------------------------
+
+    //----------------------------------Methods for Update------------------------------------
+    private void ManageValues()
+    {
+        //If the NPC is spawned, waiting there and there are 1 or less people in class, moves towards the empty desk
+        if (IsAt(spawnPointTransform) && deskPointController.currentCount <= 1 && deskPointController.isEmpty)
+        {
+            //Debug.Log(gameObject.name + "1");
+            movingToDesk = true;
+            deskPointController.currentCount += 1;
+            deskPointController.isEmpty = false;
+        }
+        //If the NPC arrived at the desk, makes arrivedAtDesk true so that NPC can talk to our player
+        else if (IsAt(deskTransform) && movingToDesk)
+        {
+            //Debug.Log(gameObject.name + "2");
+            movingToDesk = false;
+            arrivedAtDesk = true;
+            targetTransform = transform;
+        }
+        //If the NPC talked to the player, the voting place is decided
+        else if (IsAt(deskTransform) && talkedToPlayer && permittedToVote && votingPlace == null)
+        {
+            //Debug.Log(gameObject.name + "3");
+            if (votePlaceController1.isEmpty)
+            {
+                votingPlace = votePlaceTransform1;
+                targetTransform = votingPlace;
+                votingPlaceStop = votePlaceStop1;
+                votePlaceController1.isEmpty = false;
+            }
+            else
+            {
+                votingPlace = votePlaceTransform2;
+                targetTransform = 
+                votingPlaceStop = votePlaceStop2;
+                votePlaceController2.isEmpty = false;
+            }
+
+            deskPointController.isEmpty = true;
+        }
+        //If NPC arrived at the stop on his/her way to the voting place
+        else if (votingPlace != null && IsAt(votingPlaceStop) && !arrivedAtVoteStop)
+        {
+            //Debug.Log(gameObject.name + "4");
+            arrivedAtVoteStop = true;
+        }
+        //If the NPC arrived at voting place, is ready to move to chest after voting
+        else if (votingPlace != null && IsAt(votingPlace) && !votingProcessEnded && !arrivedAtVotePlace && chestPointController.isEmpty)
+        {
+            //Debug.Log(gameObject.name + "5");
+            arrivedAtVotePlace = true;
+
+            if (votingPlace == votePlaceTransform1)
+            {
+                votePlaceController1.isEmpty = true;
+            }
+            else
+            {
+                votePlaceController2.isEmpty = true;
+            }
+            
+            movingToChest = true;
+        }
+        //NPC's first point on the way to the chest
+        else if (votingProcessEnded && IsAt(votingPlaceStop) && !arrivedBackAtVoteStop)
+        {
+            //Debug.Log(gameObject.name + "5.2");
+            arrivedBackAtVoteStop = true;
+            chestPointController.isEmpty = false;
+        }
+        //NPC arrives at the chest in order to vote
+        else if (votingProcessEnded && arrivedBackAtVoteStop && IsAt(chestTransform) && !arrivedAtChest)
+        {
+            //Debug.Log(gameObject.name + "6");
+            arrivedAtChest = true;
+        }
+        else if (IsAt(chestTransform) && deskPointController.isEmpty && arrivedAtChest)
+        {
+            deskPointController.isEmpty = false;
+            movingBackToDesk = true;
+        }
+        else if (IsAt(deskTransform) && arrivedAtChest && !arrivedBackAtDesk)
+        {
+            //Debug.Log(gameObject.name + "7");
+            arrivedBackAtDesk = true;
+        }
+        else if (signedPaper && !finishedProcess)
+        {
+            deskPointController.isEmpty = true;
+            finishedProcess = true;
+        }
+        //Signing is already controlled by the method SignPaper
+    }
+    
+    private void MoveTowardsDesk()
+    {
+        //Debug.Log(gameObject.name + "MoveTowardsDesk");
+        targetTransform = deskTransform;
+        Move(deskTransform);
+        RotateToTarget();
+    }
+
+    private void TalkToPlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            talkedToPlayer = true;
+            permittedToVote = true; //For now
+        }
+    }
+
+    private void MoveTowardsVotingDestination()
+    {
+        //If the place that the NPC will vote is decided
+        if (votingPlace != null)
+        {
+            if (!arrivedAtVoteStop)
+            {
+                targetTransform = votingPlaceStop;
+                Move(votingPlaceStop);
+                RotateToTarget();
+            }
+            else
+            {
+                targetTransform = votingPlace;
+                Move(votingPlace);
+                RotateToTarget();
+            }
+        }
+    }
+
+    private void Vote()
+    {
+        float votingPeriod = Random.Range(4f, 12f);
+        Invoke("EndVotingProcess", votingPeriod);
+        Invoke("PlayVotingSound", (votingPeriod-2f));
+    }
+
+    private void EndVotingProcess()
+    {
+        //Debug.Log(gameObject.name + " end voting process");
+        votingProcessEnded = true;
+
+        chestPointController.isEmpty = false;
+    }
+
+    //Voting sound is played
+    private void PlayVotingSound()
+    {
+
+    }
+
+    private void MoveTowardsChest()
+    {
+        if (!arrivedBackAtVoteStop)
+        {
+            targetTransform = votingPlaceStop;
+            Move(targetTransform);
+            RotateToTarget();
+        }
+        else
+        {
+            targetTransform = chestTransform;
+            Move(targetTransform);
+            RotateToTarget();
+        }
+    }
+
+    private void PutVoteInChest()
+    {
+        Debug.Log("PutVoteInChest");
+        //Animation to put person's vote in the chest
+        Invoke("SetPutVoteTrue", 3f);
+    }
+
+    private void SetPutVoteTrue()
+    {
+        putVote = true;
+        chestPointController.isEmpty = true;
+    }
+
+    //For now, signs the paper when we press I
+    private void SignPaper()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            signedPaper = true;
+        }
+    }
 
     void GetOutOfTheClassroom()
     {
         targetTransform = endTransform;
         Move(targetTransform);
         RotateToTarget();
-        Invoke("MakeClassroomAvailable", 3f);
     }
 
-    void MakeClassroomAvailable()
+    private void Move(Transform targetTransform) //Moves to the current target position and handles the animation of walking
     {
-        if (adjustedCount) //to execute it just once
+        transform.position = Vector3.MoveTowards(transform.position, targetTransform.position, speed * Time.deltaTime);
+        HandleWalking();
+    }
+
+    private void HandleWalking() //Tackles the animations depending on arrival at the target position
+    {
+        //Debug.Log("HandleWalking");
+        //Debug.Log("Transform:" + transform.position + " and Target Transform:" + targetTransform.position);
+        if (IsAt(targetTransform))
         {
-            deskPointController.currentCount -= 1;
-            adjustedCount = false;
-            deskPointController.isEmpty = true;
+            //Debug.Log("They are in same position");
+            OnWalkFinished();
         }
-    }
-
-    void MakeClassroomBusy()
-    {
-        if (!adjustedCount) //to execute it just once
+        else
         {
-            deskPointController.currentCount += 1;
-            adjustedCount = true;
-        }
+            OnWalkStarted();
+        } 
     }
 
-    //-----------------------------------Methods for Awake---------------------------------------
-    //Initializes all the values suitable for starting
-    private void SpawnNPC()
+    private void OnWalkStarted()
     {
-        transform.position = spawnPointTransform.position;
+        //Debug.Log("OnWalkStarted");
+
+        animator.SetBool("isWalking", true);
     }
 
-    private void InitializeValues()
+    private void OnWalkFinished()
     {
-        arrivedAtDesk = false;
-        talkedToPlayer = false;
-        permittedToVote = false;
-        movingToVotePlace1 = false;
-        movingToVotePlace2 = false;
-        arrivedAtVoteStop = false;
-        votingProcessEnded = false;
-        arrivedAtChest = false;
-        putVote = false;
-        arrivedBackAtDesk = false;
-        signedPaper = false;
+        //Debug.Log("OnWalkFinished");
+        animator.SetBool("isWalking", false);
+
+        //Invoke("RotateToTarget", 2f); //PARAMETER NEEDED
     }
-    //-------------------------------End of methods for Awake------------------------------------
 
-    //----------------------------------Methods for Update------------------------------------
-    private void ManageValues()
+    private void RotateToTarget() //Looks at the current target and rotates towards it
     {
+        //animator.SetBool("isTurning", true);
 
+        Vector3 directionToTarget = targetTransform.position - transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget, Vector3.up);
+        transform.rotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+    }
+
+    //If the current position of the NPC is same as the given place
+    private bool IsAt(Transform place)
+    {
+        return transform.position == place.position;
     }
 }
