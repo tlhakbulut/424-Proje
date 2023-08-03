@@ -12,7 +12,7 @@ public class NpcMovement : MonoBehaviour
     {
         Debug.Log("go");
         transform.position = spawnPoint.position;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("MoveTo").transform;
     }
 
     private void Update()

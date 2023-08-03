@@ -35,6 +35,10 @@ public class DoorScript : MonoBehaviour
                     }
                 }
             }
+            else if(hit.collider.gameObject.tag == "NPC")
+            {
+                intText.SetActive(true);
+            }
             else
             {
                 intText.SetActive(false);

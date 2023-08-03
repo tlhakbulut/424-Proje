@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
     void OnMouseOver()
     {
         distance = Vector3.Distance(player.transform.position, this.transform.position);
-        if (distance <= 2.5f)
+        if (distance <= 8f)
         {
 
             if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -81,6 +81,7 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log("4A");
                     npcDialogueBox.text = npc.dialogue[2];
                     shouldMove = true;
+                    Debug.Log("should move: " + shouldMove);
                 }
             }
             else if (curResponseTracker == 2 && npc.playerDialogue.Length >= 2)
@@ -97,11 +98,13 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("sm: " + shouldMove);
             if (isTalking == true)
             {
                 EndDialogue();
             }
         }
+        Debug.Log("smssss: " + shouldMove);
     }
 
 
@@ -126,7 +129,6 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-
         if (shouldMove)
         {
             Debug.Log("MOVE");
@@ -149,6 +151,7 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator WaitAndResumeMovement()
     {
+        Debug.Log("numerator");
         yield return new WaitForSeconds(5f); // Wait for 5 seconds
 
         // come back to desk

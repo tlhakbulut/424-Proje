@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Draggable
   - door
+  - DragTutorial
+  - NPC
+  - MoveTo
   layers:
   - Default
   - TransparentFX
@@ -15,7 +18,7 @@ TagManager:
   - UI
   - whatIsGround
   - door
-  - 
+  - drag
   - 
   - 
   - 
