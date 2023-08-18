@@ -37,6 +37,9 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    public AudioSource src;
+    public AudioClip jumpStartSound, jumpEndSound;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         readyToJump = true;
     }
-
+    private int count = 0;
     private void Update()
     {
         // ground check
@@ -52,12 +55,22 @@ public class PlayerMovement : MonoBehaviour
 
         MyInput();
         SpeedControl();
-
+        
         // handle drag
-        if (grounded)
+        if (grounded){
+            if(count == 0){
+                src.clip = jumpEndSound;
+                src.Play();
+            }
+            count++;
             rb.drag = groundDrag;
-        else
+        }
+            
+        else{
+            count = 0;
             rb.drag = 0;
+        }
+            
     }
 
     private void FixedUpdate()
@@ -74,9 +87,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
-
             Jump();
-
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
@@ -118,12 +129,14 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         // reset y velocity
+        src.clip = jumpStartSound;
+        src.Play();
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
     private void ResetJump()
-    {
+    { 
         readyToJump = true;
     }
 }
