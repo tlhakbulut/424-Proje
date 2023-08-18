@@ -301,6 +301,7 @@ public class NPCMover : MonoBehaviour
 
     private void TalkToPlayer()
     {
+        Debug.Log("talk");
         if (Input.GetKeyDown(KeyCode.Return))
         {
             talkedToPlayer = true;
