@@ -17898,6 +17898,7 @@ GameObject:
   - component: {fileID: 1175839192}
   - component: {fileID: 1175839193}
   - component: {fileID: 1175839194}
+  - component: {fileID: 1175839195}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -18025,6 +18026,15 @@ MonoBehaviour:
   intText: {fileID: 1567603270}
   doorOpenAnim: dooropen
   doorCloseAnim: doorclose
+--- !u!45 &1175839195
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175839187}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 8a6468c714077fd4abe06ec6500047d4, type: 2}
 --- !u!1001 &1188865128
 PrefabInstance:
   m_ObjectHideFlags: 0
