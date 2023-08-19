@@ -62,8 +62,8 @@ public class NPCMover : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        dialogueManager = GetComponent<DialogueManager>();
-        targetTransform = dialogueManager.targetPosition;
+        //dialogueManager = GetComponent<DialogueManager>();
+        targetTransform = deskTransform;
 
         GetPointControllers();
     }
@@ -237,6 +237,8 @@ public class NPCMover : MonoBehaviour
         {
             finishedProcess = true;
             deskPointController.currentCount -= 1;
+            deskPointController.isEmpty = true;
+
         }
         //If NPC arrived at the stop on his/her way to the voting place
         else if (votingPlace != null && IsAt(votingPlaceStop) && !arrivedAtVoteStop)
