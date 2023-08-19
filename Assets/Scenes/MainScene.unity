@@ -10816,6 +10816,11 @@ MonoBehaviour:
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   rejectedPartyA: 0
+  rejectedPartyAFalse: 0
+  rejectedPartyB: 0
+  rejectedPartyBFalse: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &672329963
 GameObject:
   m_ObjectHideFlags: 0
@@ -19582,7 +19587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       propertyPath: m_TagString
-      value: A
+      value: A_Fraud
       objectReference: {fileID: 0}
     - target: {fileID: 1161837160611805812, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       propertyPath: m_Layer
@@ -24441,7 +24446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 538922b03f65e09448cf647d0f9badb1, type: 3}
       propertyPath: m_TagString
-      value: B
+      value: B_Fraud
       objectReference: {fileID: 0}
     - target: {fileID: 1082271958561512970, guid: 538922b03f65e09448cf647d0f9badb1, type: 3}
       propertyPath: m_Layer
@@ -28518,7 +28523,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 669328846}
+        - m_Target: {fileID: 2013800734}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartAQuestEnded
           m_Mode: 1
@@ -28534,7 +28539,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 669328846}
+        - m_Target: {fileID: 2013800734}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartyAQuestFailed
           m_Mode: 1
@@ -28585,6 +28590,102 @@ MonoBehaviour:
         - m_Target: {fileID: 1078630557}
           m_TargetAssemblyTypeName: TeleportPlayer, Assembly-CSharp
           m_MethodName: Teleport
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: 5b882702-5edc-4e54-afa6-3c35c4605029
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800734}
+          m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
+          m_MethodName: PartyAQuestFailed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: 1ba21afb-cbc1-4bde-ad0e-6c314ce93b77
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800734}
+          m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
+          m_MethodName: AcceptPartyBQuest
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: 4d99bb5e-f737-4b8b-91fd-73a1cdf08584
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800734}
+          m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
+          m_MethodName: PartBQuestEnded
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: ce454333-d004-422a-aedd-4fc10e59a52a
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800734}
+          m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
+          m_MethodName: PartyBQuestFailed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: dc9ef5dd-bbb7-4dc0-8c77-8970de77a651
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800734}
+          m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
+          m_MethodName: PartyBQuestFailed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: a0c2de74-c0db-458c-b9d7-566b71d985ee
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800734}
+          m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
+          m_MethodName: PartyBQuestFailed
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -32269,6 +32370,11 @@ MonoBehaviour:
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   rejectedPartyA: 0
+  rejectedPartyAFalse: 0
+  rejectedPartyB: 0
+  rejectedPartyBFalse: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &2021810161
 GameObject:
   m_ObjectHideFlags: 0

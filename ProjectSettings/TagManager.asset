@@ -9,6 +9,8 @@ TagManager:
   - door
   - A
   - B
+  - A_Fraud
+  - B_Fraud
   layers:
   - Default
   - TransparentFX
