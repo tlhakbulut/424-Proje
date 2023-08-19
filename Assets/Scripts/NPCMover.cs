@@ -296,6 +296,7 @@ public class NPCMover : MonoBehaviour
             deskPointController.isEmpty = true;
             finishedProcess = true;
             Invoke("DecreasePeopleCount", 2f);
+            Invoke("DestroyVoter", 3f);
         }
         //Signing is already controlled by the method SignPaper
     }
