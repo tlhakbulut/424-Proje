@@ -317,7 +317,7 @@ public class NPCMover : MonoBehaviour
             talkedToPlayer = true;
             permittedToVote = true; //For now
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             talkedToPlayer = true;
             permittedToVote = false;
