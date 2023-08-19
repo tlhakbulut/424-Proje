@@ -98,6 +98,11 @@ public class NPCMover : MonoBehaviour
         {
             Debug.Log(gameObject.name + " siniftan cikiyor");
             GetOutOfTheClassroom();
+
+            if (finishedProcess)
+            {
+                Invoke("DestroyVoter", 3f);
+            }
         }
         else if (permittedToVote && arrivedAtVotePlace && !votingProcessEnded)
         {
@@ -404,11 +409,17 @@ public class NPCMover : MonoBehaviour
         targetTransform = endTransform;
         Move(targetTransform);
         RotateToTarget();
+        
     }
 
     private void DecreasePeopleCount()
     {
         deskPointController.currentCount -= 1;
+    }
+
+    private void DestroyVoter()
+    {
+        Destroy(gameObject);
     }
 
     private void Move(Transform targetTransform) //Moves to the current target position and handles the animation of walking
