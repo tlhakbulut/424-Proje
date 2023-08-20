@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    public GameObject[] voterObjects; // An array to hold the 12 voter objects
-    private int currentVoterIndex = 0; // Index of the next voter object to activate
+    public GameObject[] voterObjects; 
+    private int currentVoterIndex = 0; 
     private bool isActiveChild = false;
     private int activeChildCount = 0;
+    public GameObject[] electionOfficers;
+    private int electionOfficerCounter = 3;
 
     private void Start()
     {
-       // ActivateNextGroup(); // Activate the first group of voter objects at the start
+       
     }
 
     private void Update()
     {
-        // Check for user input to activate the next group of voter objects
+        
 
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -34,12 +36,13 @@ public class NPCController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B) && activeChildCount == 0)
         {
             ActivateNextGroup();
+            ActivateNextElectionOfficer();
         }
     }
 
     private void ActivateNextGroup()
     {
-        // Deactivate the previous group of voter objects (if any)
+        
         //DeactivateCurrentGroup();
 
         // Activate the next group of voter objects (up to 4)
@@ -48,16 +51,33 @@ public class NPCController : MonoBehaviour
             voterObjects[i].SetActive(true);
         }
 
-        // Update the currentVoterIndex for the next group activation
         currentVoterIndex += 4;
 
-        // Check if all voter objects are activated
         if (currentVoterIndex >= voterObjects.Length)
         {
-            // Handle the case where all voter objects are activated
             Debug.Log("All voter objects activated!");
         }
     }
 
-   
+    private void ActivateNextElectionOfficer()
+    {
+        if(electionOfficerCounter == 3)
+        {
+            Debug.Log("hereee");
+            electionOfficerCounter -= 1;
+            electionOfficers[0].SetActive(false);
+            electionOfficers[1].SetActive(true);
+
+        }
+        else if(electionOfficerCounter == 2)
+        {
+            Debug.Log("XXXXXXXXXXXXX");
+            electionOfficerCounter -= 1;
+            electionOfficers[1].SetActive(false);
+            electionOfficers[2].SetActive(true);
+        }
+    }
+
+
+
 }
