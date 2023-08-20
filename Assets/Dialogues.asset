@@ -1491,6 +1491,12 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
+      - originConversationID: 2
+        originDialogueID: 0
+        destinationConversationID: 2
+        destinationDialogueID: 25
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1678,8 +1684,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1323.877
-        y: 125.51022
+        x: 1216.5598
+        y: 151.11996
         width: 160
         height: 30
     - id: 4
@@ -1709,7 +1715,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: SetActive(Suspect,true)
+        value: 
         type: 0
         typeString: 
       conversationID: 2
@@ -2176,7 +2182,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 332.34668
+        x: 327.46863
         y: 471.9795
         width: 160
         height: 30
@@ -2613,7 +2619,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 947.47003
-        y: 276.75848
+        y: 277.978
         width: 160
         height: 30
     - id: 22
@@ -2767,9 +2773,58 @@ MonoBehaviour:
         y: 449.6111
         width: 160
         height: 30
+    - id: 25
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\xC7ekil kar\u015F\u0131mdan i\u015Fe yaramaz herif seni."
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: "CurrentQuestState(\"Su\xE7luyu Bul\") == \"failure\""
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1490.5725
+        y: 130.46292
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 158.7321, y: 11.940308}
-    canvasZoom: 0.6700003
+    canvasScrollPosition: {x: 840.6267, y: 40.24388}
+    canvasZoom: 0.8200002
   - id: 3
     fields:
     - title: Title
