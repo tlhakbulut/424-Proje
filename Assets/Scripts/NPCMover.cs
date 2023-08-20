@@ -73,30 +73,30 @@ public class NPCMover : MonoBehaviour
         //Debug.Log("desk su an bos:" + deskPointController.isEmpty);
         //Debug.Log("vote place 1 su an bos:" + votePlaceController1.isEmpty);
         //Debug.Log("vote place 2 su an bos:" + votePlaceController2.isEmpty);
-        Debug.Log("sandik su an bos:" + chestPointController.isEmpty);
+       // Debug.Log("sandik su an bos:" + chestPointController.isEmpty);
         //Debug.Log("Oy yerine vardi:" + arrivedAtVotePlace + " sandiga varmadi:" + !arrivedAtChest + " oy verme islemi bitti:" + votingProcessEnded + " sandiga gidiyo" + movingToChest);
 
         ManageValues(); //Changes the bool and other values according to the current situation of NPC
 
         if (movingToDesk && !arrivedAtDesk)
         {
-            Debug.Log(gameObject.name + " masaya geliyor");
+          //  Debug.Log(gameObject.name + " masaya geliyor");
             MoveTowardsDesk();
         }
         else if (arrivedAtDesk && !talkedToPlayer)
         {
-            Debug.Log(gameObject.name + " oyuncuyla konusuyor");
+          //  Debug.Log(gameObject.name + " oyuncuyla konusuyor");
             TalkToPlayer(); //Let this method handle the bool value talkedToPlayer and permittedToVote
             //(for example, after the chat, press Enter and let talkedToPlayer be true)
         }
         else if (permittedToVote && !arrivedAtVotePlace && !votingProcessEnded)
         {
-            Debug.Log(gameObject.name + " oy verme yerine gidiyor");
+          //  Debug.Log(gameObject.name + " oy verme yerine gidiyor");
             MoveTowardsVotingDestination(); //make votingProcessEnded, arrivedAtVoteStop true after some seconds (or votinProcessEnd may be useful)
         }
         else if (talkedToPlayer && !permittedToVote)
         {
-            Debug.Log(gameObject.name + " siniftan cikiyor");
+         //   Debug.Log(gameObject.name + " siniftan cikiyor");
             GetOutOfTheClassroom();
 
             if (finishedProcess)
@@ -106,32 +106,32 @@ public class NPCMover : MonoBehaviour
         }
         else if (permittedToVote && arrivedAtVotePlace && !votingProcessEnded)
         {
-            Debug.Log(gameObject.name + " oy atiyor");
+          //  Debug.Log(gameObject.name + " oy atiyor");
             Vote();
         }
         else if (arrivedAtVotePlace && !arrivedAtChest && votingProcessEnded && movingToChest)
         {
-            Debug.Log(gameObject.name + " sandiga gidiyor");
+          //  Debug.Log(gameObject.name + " sandiga gidiyor");
             MoveTowardsChest();
         }
         else if (arrivedAtChest && !putVote)
         {
-            Debug.Log(gameObject.name + " sandiga oy atiyor");
+          //  Debug.Log(gameObject.name + " sandiga oy atiyor");
             PutVoteInChest();
         }
         else if (arrivedAtChest && putVote && !arrivedBackAtDesk && movingBackToDesk)
         {
-            Debug.Log(gameObject.name + " imza atmak icin masaya geliyor");
+           // Debug.Log(gameObject.name + " imza atmak icin masaya geliyor");
             MoveTowardsDesk();
         }
         else if (arrivedBackAtDesk && !signedPaper)
         {
-            Debug.Log(gameObject.name + " imza atiyor");
+          //  Debug.Log(gameObject.name + " imza atiyor");
             SignPaper(); //Let this method handle the bool value signedPaper
         }
         else if (signedPaper)
         {
-            Debug.Log(gameObject.name + " siniftan cikiyor");
+          //  Debug.Log(gameObject.name + " siniftan cikiyor");
             GetOutOfTheClassroom();
         }
     }
@@ -271,14 +271,14 @@ public class NPCMover : MonoBehaviour
         //NPC's first point on the way to the chest
         else if (votingProcessEnded && IsAt(votingPlaceStop) && !arrivedBackAtVoteStop)
         {
-            Debug.Log(gameObject.name + "5.2");
+           // Debug.Log(gameObject.name + "5.2");
             arrivedBackAtVoteStop = true;
             chestPointController.isEmpty = false;
         }
         //NPC arrives at the chest in order to vote
         else if (votingProcessEnded && arrivedBackAtVoteStop && IsAt(chestTransform) && !arrivedAtChest)
         {
-            Debug.Log(gameObject.name + "6");
+          //  Debug.Log(gameObject.name + "6");
             arrivedAtChest = true;
         }
         else if (IsAt(chestTransform) && deskPointController.isEmpty && arrivedAtChest)
@@ -288,7 +288,7 @@ public class NPCMover : MonoBehaviour
         }
         else if (IsAt(deskTransform) && arrivedAtChest && !arrivedBackAtDesk)
         {
-            Debug.Log(gameObject.name + "7");
+           // Debug.Log(gameObject.name + "7");
             arrivedBackAtDesk = true;
         }
         else if (signedPaper && !finishedProcess)
@@ -311,7 +311,7 @@ public class NPCMover : MonoBehaviour
 
     private void TalkToPlayer()
     {
-        Debug.Log("talk");
+       // Debug.Log("talk");
         if (Input.GetKeyDown(KeyCode.Return))
         {
             talkedToPlayer = true;
@@ -326,11 +326,11 @@ public class NPCMover : MonoBehaviour
 
     private void MoveTowardsVotingDestination()
     {
-        Debug.Log("MoveTowardsVotingDestination");
+       // Debug.Log("MoveTowardsVotingDestination");
         //If the place that the NPC will vote is decided
         if (votingPlace != null)
         {
-            Debug.Log("voting place null degil");
+            //Debug.Log("voting place null degil");
             if (!arrivedAtVoteStop)
             {
                 targetTransform = votingPlaceStop;
@@ -385,7 +385,7 @@ public class NPCMover : MonoBehaviour
 
     private void PutVoteInChest()
     {
-        Debug.Log("PutVoteInChest");
+        //Debug.Log("PutVoteInChest");
         //Animation to put person's vote in the chest
         Invoke("SetPutVoteTrue", 3f);
     }
@@ -471,7 +471,7 @@ public class NPCMover : MonoBehaviour
     //If the current position of the NPC is same as the given place
     private bool IsAt(Transform place)
     {
-        Debug.Log(place.name + "'de mi? " + (transform.position == place.position));
+        //Debug.Log(place.name + "'de mi? " + (transform.position == place.position));
         return transform.position == place.position;
     }
 }

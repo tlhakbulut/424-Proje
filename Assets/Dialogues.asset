@@ -9046,8 +9046,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2446.091
-        y: 37.28605
+        x: 2506.9607
+        y: 122.06868
         width: 160
         height: 30
     - id: 25
@@ -9873,13 +9873,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2449.3696
-        y: 118.43356
+        x: 2510.2393
+        y: 209.73795
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 728.2399, y: 165.4112}
-    canvasZoom: 0.39999992
+    canvasScrollPosition: {x: 266.84976, y: 485.3028}
+    canvasZoom: 0.6399998
   - id: 9
     fields:
     - title: Title

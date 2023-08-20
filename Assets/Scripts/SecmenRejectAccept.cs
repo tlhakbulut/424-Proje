@@ -11,10 +11,10 @@ public class SecmenRejectAccept : MonoBehaviour
     [HideInInspector]
     public bool isPartyA_MissionAccepted = false;
     [HideInInspector]
-    public int rejectedPartyA = 0;
-    public int rejectedPartyAFalse = 0;
-    public int rejectedPartyB = 0;
-    public int rejectedPartyBFalse = 0;
+    //public int rejectedPartyA = 0;
+   // public int rejectedPartyAFalse = 0;
+    //public int rejectedPartyB = 0;
+    private int rejectedPartyBFalse = 0;
 
     [HideInInspector]
     public bool isPartyB_MissionEnded = false;
@@ -22,27 +22,49 @@ public class SecmenRejectAccept : MonoBehaviour
     public bool isPartyB_MissionAccepted = false;
 
 
+    VoterPointCount voterPointCount;
+
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        voterPointCount = GetComponentInParent<VoterPointCount>();
+    }
+
+
     public void SecmenReject()
     {
+        
+        Debug.Log("REJECTED");
+        Debug.Log("name: " + gameObject.name);
         isRejected += 1;
         if(gameObject.tag == "A")
         {
-            rejectedPartyAFalse++;
-            rejectedPartyA++;
+            Debug.Log("A Rejected");
+            voterPointCount.rejectedPartyA++;
+            voterPointCount.rejectedPartyAFalse++;
+            //rejectedPartyAFalse++;
+            //rejectedPartyA++;
         }
         if(gameObject.tag == "A_Fraud")
         {
-            rejectedPartyA++;
+            Debug.Log("A Fraud Rejected");
+            voterPointCount.rejectedPartyA++;
+            //rejectedPartyA++;
         }
         if (gameObject.tag == "B")
         {
-            rejectedPartyBFalse++;
-            rejectedPartyB++;
+            Debug.Log("B Rejected");
+            voterPointCount.rejectedPartyB++;
+            voterPointCount.rejectedPartyBFalse++;
+            //rejectedPartyBFalse++;
+            //rejectedPartyB++;
         }
         if (gameObject.tag == "B_Fraud")
         {
-            rejectedPartyB++;
+            Debug.Log("B Fraud Rejected");
+            voterPointCount.rejectedPartyB++;
+            //rejectedPartyB++;
         }
 
         //Debug.Log("Rejected no: " + rejectedPartyA);
@@ -61,10 +83,14 @@ public class SecmenRejectAccept : MonoBehaviour
     public void PartAQuestEnded()
     {
         isPartyA_MissionEnded = true;
-        Debug.Log("Quest completed A: " + rejectedPartyBFalse);
-        Debug.Log("Quest completed A: " + rejectedPartyB);
-        Debug.Log("B: " + rejectedPartyAFalse);
-        Debug.Log("B: " + rejectedPartyA);
+        //Debug.Log("Quest completed A: " + rejectedPartyBFalse);
+        //Debug.Log("Quest completed A: " + rejectedPartyB);
+        Debug.Log("Quest completed A: " + voterPointCount.rejectedPartyBFalse);
+        Debug.Log("Quest completed A: " + voterPointCount.rejectedPartyB);
+        //Debug.Log("B: " + rejectedPartyAFalse);
+        //Debug.Log("B: " + rejectedPartyA);
+        Debug.Log("B: " + voterPointCount.rejectedPartyAFalse);
+        Debug.Log("B: " + voterPointCount.rejectedPartyA);
     }
 
     public void PartyAQuestFailed()
@@ -82,10 +108,14 @@ public class SecmenRejectAccept : MonoBehaviour
     public void PartBQuestEnded()
     {
         isPartyB_MissionEnded = true;
-        Debug.Log("Quest completed B: " + rejectedPartyAFalse);
-        Debug.Log("Quest completed B: " + rejectedPartyA);
-        Debug.Log("A: " + rejectedPartyBFalse);
-        Debug.Log("A: " + rejectedPartyB);
+        //Debug.Log("Quest completed B: " + rejectedPartyAFalse);
+       // Debug.Log("Quest completed B: " + rejectedPartyA);
+        Debug.Log("Quest completed A: " + voterPointCount.rejectedPartyAFalse);
+        Debug.Log("Quest completed A: " + voterPointCount.rejectedPartyA);
+        Debug.Log("B: " + voterPointCount.rejectedPartyBFalse);
+        Debug.Log("B: " + voterPointCount.rejectedPartyB);
+        //Debug.Log("A: " + rejectedPartyBFalse);
+       // Debug.Log("A: " + rejectedPartyB);
     }
 
     public void PartyBQuestFailed()
