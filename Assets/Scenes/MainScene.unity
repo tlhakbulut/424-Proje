@@ -2622,7 +2622,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 204458206}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -2653,6 +2653,23 @@ MonoBehaviour:
   deskToVote2Transform: {fileID: 564988472}
   chestTransform: {fileID: 1143904600}
   endTransform: {fileID: 1625420633}
+--- !u!114 &204458206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204458199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1001 &206300621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7257,6 +7274,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 17a494469dbb2a549bae2381b36dcf01, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1095992561}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 17a494469dbb2a549bae2381b36dcf01, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1095992565}
   m_SourcePrefab: {fileID: 100100000, guid: 17a494469dbb2a549bae2381b36dcf01, type: 3}
 --- !u!4 &448913456 stripped
 Transform:
@@ -8044,6 +8064,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 518566581}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 518566582}
   m_SourcePrefab: {fileID: 100100000, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
 --- !u!1 &518566569 stripped
 GameObject:
@@ -8255,6 +8278,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deskTransform: {fileID: 1126418548}
+--- !u!114 &518566582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518566569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!4 &523793672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4574124760409694, guid: cd74bf6cea4234840b01646a5b3f339a, type: 3}
@@ -8461,7 +8501,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 543434491}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -8473,6 +8513,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &543434491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543434482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &545845937
 GameObject:
   m_ObjectHideFlags: 0
@@ -9643,6 +9700,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
       insertIndex: -1
       addedObject: {fileID: 780023507}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 780023512}
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
 --- !u!1 &587831512
 GameObject:
@@ -10270,7 +10330,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 624509316}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -10345,6 +10405,23 @@ CapsuleCollider:
   m_Height: 3.8254838
   m_Direction: 1
   m_Center: {x: 0.013935804, y: 1.8863351, z: -0.019237995}
+--- !u!114 &624509316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624509309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &624809952
 GameObject:
   m_ObjectHideFlags: 0
@@ -11730,10 +11807,6 @@ MonoBehaviour:
   isRejected: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
-  rejectedPartyA: 0
-  rejectedPartyAFalse: 0
-  rejectedPartyB: 0
-  rejectedPartyBFalse: 0
   isPartyB_MissionEnded: 0
   isPartyB_MissionAccepted: 0
 --- !u!1 &672329963
@@ -13008,6 +13081,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2108111410}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2108111414}
   m_SourcePrefab: {fileID: 100100000, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
 --- !u!4 &721901342 stripped
 Transform:
@@ -13808,7 +13884,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 780023512}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -13862,6 +13938,23 @@ MonoBehaviour:
   deskToVote2Transform: {fileID: 564988472}
   chestTransform: {fileID: 1143904600}
   endTransform: {fileID: 1625420633}
+--- !u!114 &780023512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780023505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &781043061
 GameObject:
   m_ObjectHideFlags: 0
@@ -14840,6 +14933,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 15741faa13f9dbe4ea9d2505934bc45d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1780771930}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 15741faa13f9dbe4ea9d2505934bc45d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1780771934}
   m_SourcePrefab: {fileID: 100100000, guid: 15741faa13f9dbe4ea9d2505934bc45d, type: 3}
 --- !u!1 &868157959
 GameObject:
@@ -16377,6 +16473,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9b28deda82f183d468bfd2f88b66d044, type: 3}
       insertIndex: -1
       addedObject: {fileID: 941267291}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9b28deda82f183d468bfd2f88b66d044, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 941267295}
   m_SourcePrefab: {fileID: 100100000, guid: 9b28deda82f183d468bfd2f88b66d044, type: 3}
 --- !u!4 &941267286 stripped
 Transform:
@@ -16513,7 +16612,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 941267295}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -16548,6 +16647,23 @@ CapsuleCollider:
   m_Height: 3.8254838
   m_Direction: 1
   m_Center: {x: 0.013935804, y: 1.8863351, z: -0.019237995}
+--- !u!114 &941267295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847294720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &942250993
 GameObject:
   m_ObjectHideFlags: 0
@@ -19619,7 +19735,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 1095992565}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -19654,6 +19770,23 @@ CapsuleCollider:
   m_Height: 1.8088231
   m_Direction: 1
   m_Center: {x: 0.0016593933, y: 0.8514484, z: 0.037370205}
+--- !u!114 &1095992565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095992557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &1099045073
 GameObject:
   m_ObjectHideFlags: 0
@@ -20357,6 +20490,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db3edfce22a1b764e9bc7ee400bf996a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1129765947}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: db3edfce22a1b764e9bc7ee400bf996a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129765949}
   m_SourcePrefab: {fileID: 100100000, guid: db3edfce22a1b764e9bc7ee400bf996a, type: 3}
 --- !u!4 &1129765941 stripped
 Transform:
@@ -20493,7 +20629,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 1129765949}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -20528,6 +20664,23 @@ CapsuleCollider:
   m_Height: 3.8254838
   m_Direction: 1
   m_Center: {x: 0.013935804, y: 1.8863351, z: -0.019237995}
+--- !u!114 &1129765949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509877123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1001 &1133615648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20915,6 +21068,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1133615657}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1133615659}
   m_SourcePrefab: {fileID: 100100000, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
 --- !u!1 &1133615649 stripped
 GameObject:
@@ -21100,7 +21256,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 1133615659}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -21112,6 +21268,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1133615659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133615649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &1136203835
 GameObject:
   m_ObjectHideFlags: 0
@@ -21751,6 +21924,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb1a3ca970bf85e47bbf314954fd97ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1147045830}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb1a3ca970bf85e47bbf314954fd97ae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1147045834}
   m_SourcePrefab: {fileID: 100100000, guid: cb1a3ca970bf85e47bbf314954fd97ae, type: 3}
 --- !u!4 &1147045826 stripped
 Transform:
@@ -21887,7 +22063,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 1147045834}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -21922,6 +22098,23 @@ CapsuleCollider:
   m_Height: 3.8254838
   m_Direction: 1
   m_Center: {x: 0.013935804, y: 1.8863351, z: -0.019237995}
+--- !u!114 &1147045834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064137110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1001 &1147451012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22350,6 +22543,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1473432281}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1473432284}
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
 --- !u!1 &1152825612
 GameObject:
@@ -23166,6 +23362,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1558606118}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1558606120}
   m_SourcePrefab: {fileID: 100100000, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
 --- !u!4 &1171141277 stripped
 Transform:
@@ -23784,6 +23983,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ec399675e834e4d4ba2aeecd39acd8de, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1192989705}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ec399675e834e4d4ba2aeecd39acd8de, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1192989709}
   m_SourcePrefab: {fileID: 100100000, guid: ec399675e834e4d4ba2aeecd39acd8de, type: 3}
 --- !u!4 &1192989701 stripped
 Transform:
@@ -23920,7 +24122,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 1192989709}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -23955,6 +24157,23 @@ CapsuleCollider:
   m_Height: 1.8088231
   m_Direction: 1
   m_Center: {x: 0.0016593933, y: 0.8514484, z: 0.037370205}
+--- !u!114 &1192989709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119030987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1001 &1198070973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25779,6 +25998,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 538922b03f65e09448cf647d0f9badb1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 543434488}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 538922b03f65e09448cf647d0f9badb1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 543434491}
   m_SourcePrefab: {fileID: 100100000, guid: 538922b03f65e09448cf647d0f9badb1, type: 3}
 --- !u!1 &1322153755
 GameObject:
@@ -27725,6 +27947,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 204458201}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 204458206}
   m_SourcePrefab: {fileID: 100100000, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
 --- !u!1 &1473432272 stripped
 GameObject:
@@ -27889,7 +28114,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 1473432284}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -27901,6 +28126,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1473432284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473432272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &1479489402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
@@ -28022,7 +28264,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 1479489409}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -28076,6 +28318,23 @@ MonoBehaviour:
   deskToVote2Transform: {fileID: 564988472}
   chestTransform: {fileID: 1143904600}
   endTransform: {fileID: 1625420633}
+--- !u!114 &1479489409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479489402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &1480377306
 GameObject:
   m_ObjectHideFlags: 0
@@ -29128,6 +29387,23 @@ MonoBehaviour:
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
   selectedDatabase: {fileID: 11400000, guid: 996bf98ce1af1994a8ad518a721b6344, type: 2}
+--- !u!114 &1558606120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558606109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1 &1566723564
 GameObject:
   m_ObjectHideFlags: 0
@@ -30499,7 +30775,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartAQuestEnded
           m_Mode: 1
@@ -30515,7 +30791,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartyAQuestFailed
           m_Mode: 1
@@ -30579,7 +30855,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartyAQuestFailed
           m_Mode: 1
@@ -30595,7 +30871,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: AcceptPartyBQuest
           m_Mode: 1
@@ -30611,7 +30887,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartBQuestEnded
           m_Mode: 1
@@ -30627,7 +30903,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartyBQuestFailed
           m_Mode: 1
@@ -30643,7 +30919,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartyBQuestFailed
           m_Mode: 1
@@ -30659,7 +30935,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartyBQuestFailed
           m_Mode: 1
@@ -31081,6 +31357,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 624509311}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 624509316}
   m_SourcePrefab: {fileID: 100100000, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
 --- !u!1 &1715461503
 GameObject:
@@ -31864,7 +32143,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 1780771934}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -31899,6 +32178,23 @@ CapsuleCollider:
   m_Height: 3.8254838
   m_Direction: 1
   m_Center: {x: 0.013935804, y: 1.8863351, z: -0.019237995}
+--- !u!114 &1780771934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780771926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1001 &1794326968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34755,7 +35051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013800732}
   - component: {fileID: 2013800733}
-  - component: {fileID: 2013800734}
+  - component: {fileID: 2013800735}
   m_Layer: 0
   m_Name: Voters
   m_TagString: Untagged
@@ -34819,7 +35115,11 @@ MonoBehaviour:
   - {fileID: 1119030987}
   - {fileID: 847294720}
   - {fileID: 1095992557}
---- !u!114 &2013800734
+  - {fileID: 780023505}
+  - {fileID: 204458199}
+  - {fileID: 1479489402}
+  - {fileID: 624509309}
+--- !u!114 &2013800735
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34828,18 +35128,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2013800731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Script: {fileID: 11500000, guid: d7b6cf08a9d76ea46a324727db7fad9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRejected: 0
-  isPartyA_MissionEnded: 0
-  isPartyA_MissionAccepted: 0
   rejectedPartyA: 0
   rejectedPartyAFalse: 0
   rejectedPartyB: 0
   rejectedPartyBFalse: 0
-  isPartyB_MissionEnded: 0
-  isPartyB_MissionAccepted: 0
 --- !u!1 &2021810161
 GameObject:
   m_ObjectHideFlags: 0
@@ -35342,6 +35637,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1479489404}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1479489409}
   m_SourcePrefab: {fileID: 100100000, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
 --- !u!1001 &2046011827
 PrefabInstance:
@@ -36438,7 +36736,7 @@ MonoBehaviour:
     onUse:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2013800734}
+        - m_Target: {fileID: 2108111414}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: SecmenReject
           m_Mode: 1
@@ -36450,6 +36748,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2108111414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108111405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d78f5c4fc43ccd4c8f87553fee13890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRejected: 0
+  isPartyA_MissionEnded: 0
+  isPartyA_MissionAccepted: 0
+  isPartyB_MissionEnded: 0
+  isPartyB_MissionAccepted: 0
 --- !u!1001 &2121805061
 PrefabInstance:
   m_ObjectHideFlags: 0
