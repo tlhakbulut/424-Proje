@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1537233262803208782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5599267619294323980}
+  - component: {fileID: 2595073182313054397}
+  - component: {fileID: 8458494638356416458}
+  - component: {fileID: 5936520859248953974}
+  m_Layer: 0
+  m_Name: UISetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5599267619294323980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537233262803208782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.084148, y: 27.657385, z: 3.3967938}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2595073182313054397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537233262803208782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d9b1b3bcaa6174d84b32136bf87fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name_text: {fileID: 0}
+  ssn_text: {fileID: 0}
+  KimlikKart: {fileID: 0}
+--- !u!114 &8458494638356416458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537233262803208782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc148509b040344ca629e92ce90ac17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name_text_1: {fileID: 0}
+  ssn_text_1: {fileID: 0}
+  "s\u0131ra_text_1": {fileID: 0}
+  name_text_2: {fileID: 0}
+  ssn_text_2: {fileID: 0}
+  "s\u0131ra_text_2": {fileID: 0}
+  name_text_3: {fileID: 0}
+  ssn_text_3: {fileID: 0}
+  "s\u0131ra_text_3": {fileID: 0}
+  name_text_4: {fileID: 0}
+  ssn_text_4: {fileID: 0}
+  "s\u0131ra_text_4": {fileID: 0}
+  name_text_5: {fileID: 0}
+  ssn_text_5: {fileID: 0}
+  "s\u0131ra_text_5": {fileID: 0}
+  name_text_6: {fileID: 0}
+  ssn_text_6: {fileID: 0}
+  "s\u0131ra_text_6": {fileID: 0}
+  name_text_7: {fileID: 0}
+  ssn_text_7: {fileID: 0}
+  "s\u0131ra_text_7": {fileID: 0}
+  name_text_8: {fileID: 0}
+  ssn_text_8: {fileID: 0}
+  "s\u0131ra_text_8": {fileID: 0}
+  "SayfaDe\u011Fi\u015FtirmeButton": {fileID: 0}
+  page: 1
+--- !u!114 &5936520859248953974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537233262803208782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0682173b31590d141a48c92894a40044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

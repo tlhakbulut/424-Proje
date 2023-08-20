@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -40,16 +41,30 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource src;
     public AudioClip jumpStartSound, jumpEndSound;
 
+    public Canvas masacanvas;
+    public Canvas dialogueManagerCanvas;
+    public Canvas crosshairCanvas;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        masacanvas.enabled = false;
 
         readyToJump = true;
     }
     private int count = 0;
     private void Update()
     {
+        // If P is enable the canvas
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            masacanvas.enabled = masacanvas.enabled ? false : true;
+            dialogueManagerCanvas.enabled =  dialogueManagerCanvas.enabled ? false : true;
+            crosshairCanvas.enabled = crosshairCanvas.enabled ? false : true;
+        }
+
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
 

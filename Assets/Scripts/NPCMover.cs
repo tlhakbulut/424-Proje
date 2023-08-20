@@ -211,6 +211,13 @@ public class NPCMover : MonoBehaviour
         //If the NPC arrived at the desk, makes arrivedAtDesk true so that NPC can talk to our player
         else if (IsAt(deskTransform) && movingToDesk)
         {
+            // I will handle the kimlik values here
+            name = gameObject.name;
+            PlayerPrefs.SetString("current_voter_name" + voterCount, name);
+            // Create a random Int for Ssn
+            int ssn = gameObject.GetComponent<SSn>().ssn;
+            PlayerPrefs.SetInt("current_voter_ssn" + voterCount, ssn);
+            PlayerPrefs.SetInt("istherevoter",1);
             //Debug.Log(gameObject.name + "2");
             movingToDesk = false;
             arrivedAtDesk = true;
@@ -316,11 +323,13 @@ public class NPCMover : MonoBehaviour
         {
             talkedToPlayer = true;
             permittedToVote = true; //For now
+            PlayerPrefs.SetInt("istherevoter",0);
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
             talkedToPlayer = true;
             permittedToVote = false;
+            PlayerPrefs.SetInt("istherevoter",0);
         }
     }
 
@@ -402,6 +411,7 @@ public class NPCMover : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             signedPaper = true;
+            PlayerPrefs.SetInt("istherevoter",0);
         }
     }
 
