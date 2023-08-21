@@ -52,6 +52,7 @@ public class SecmenRejectAccept : MonoBehaviour
         {
             Debug.Log("A Fraud Rejected");
             voterPointCount.rejectedPartyA++;
+            voterPointCount.rejectedPartyA_Fraud++;
             //rejectedPartyA++;
         }
         if (gameObject.tag == "B")
@@ -66,6 +67,7 @@ public class SecmenRejectAccept : MonoBehaviour
         {
             Debug.Log("B Fraud Rejected");
             voterPointCount.rejectedPartyB++;
+            voterPointCount.rejectedPartyB_Fraud++;
             //rejectedPartyB++;
         }
 

@@ -312,7 +312,7 @@ MonoBehaviour:
     - title: Name
       value: "Parti G\xF6revi 2"
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -321,23 +321,51 @@ MonoBehaviour:
       value: "B partisi sand\u0131k g\xF6revlisi benden A partili 4 ki\u015Finin
         oy vermesini engellememi istedi"
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Success Description
-      value: 
+      value: "4 Ki\u015Fiyi engelledim"
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Failure Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: State
       value: unassigned
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Is Item
       value: False
       type: 2
       typeString: CustomFieldType_Boolean
+    - title: 
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Display Name
+      value: A partili 4 eleman reddet
+      type: 0
+      typeString: 
+    - title: Trackable
+      value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Track
+      value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Entry Count
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 1 State
+      value: active
+      type: 0
+      typeString: 
+    - title: Entry 1
+      value: '[var=NumberOfPartyARejections]/4 Rededildi'
+      type: 0
+      typeString: 
   locations: []
   variables:
   - id: 1
@@ -400,6 +428,20 @@ MonoBehaviour:
     fields:
     - title: Name
       value: NumberOfPartyARejections
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 6
+    fields:
+    - title: Name
+      value: "PartiSe\xE7imi"
       type: 0
       typeString: 
     - title: Initial Value
@@ -1463,6 +1505,12 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
+      - originConversationID: 2
+        originDialogueID: 0
+        destinationConversationID: 2
+        destinationDialogueID: 25
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1650,8 +1698,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1323.877
-        y: 125.51022
+        x: 1216.5598
+        y: 151.11996
         width: 160
         height: 30
     - id: 4
@@ -1681,7 +1729,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: SetActive(Suspect,true)
+        value: 
         type: 0
         typeString: 
       conversationID: 2
@@ -1850,6 +1898,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: EventGuid
+        value: 000fb088-6f19-42f5-a4fd-8fd3b3f1cfe0
+        type: 0
+        typeString: 
       conversationID: 2
       isRoot: 0
       isGroup: 0
@@ -1866,7 +1918,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 752.9249
-        y: 460.6678
+        y: 461.93365
         width: 160
         height: 30
     - id: 8
@@ -2148,7 +2200,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 332.34668
+        x: 327.46863
         y: 471.9795
         width: 160
         height: 30
@@ -2585,7 +2637,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 947.47003
-        y: 276.75848
+        y: 277.978
         width: 160
         height: 30
     - id: 22
@@ -2618,6 +2670,10 @@ MonoBehaviour:
         typeString: 
       - title: Sequence
         value: 
+        type: 0
+        typeString: 
+      - title: EventGuid
+        value: ac564280-7483-40cd-b2f9-f301d0a573b2
         type: 0
         typeString: 
       conversationID: 2
@@ -2739,19 +2795,68 @@ MonoBehaviour:
         y: 449.6111
         width: 160
         height: 30
+    - id: 25
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "\xC7ekil kar\u015F\u0131mdan i\u015Fe yaramaz herif seni."
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: "CurrentQuestState(\"Su\xE7luyu Bul\") == \"failure\""
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1490.5725
+        y: 130.46292
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 158.7321, y: 11.940308}
-    canvasZoom: 0.6700003
+    canvasScrollPosition: {x: 370.37515, y: 363.69672}
+    canvasZoom: 0.7600002
   - id: 3
     fields:
     - title: Title
       value: PartyAQuest
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Actor
       value: 1
       type: 5
@@ -3598,11 +3703,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -3614,15 +3719,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Tamamd\u0131r. Anla\u015Ft\u0131k o zaman."
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
-        value: "SetActive(Se\xE7menler,true)"
+        value: SetActive(Voters,true)
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -3645,7 +3750,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 537.22906
+        x: 538.7216
         y: 584.1796
         width: 160
         height: 30
@@ -3947,11 +4052,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -3963,15 +4068,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Ha \u015F\xF6yle. Anla\u015Ft\u0131k o zaman."
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
-        value: "SetActive(Se\xE7menler,true)"
+        value: SetActive(Voters,true)
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -3994,7 +4099,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 546.06354
+        x: 544.24536
         y: 869.1796
         width: 160
         height: 30
@@ -4131,11 +4236,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -4147,15 +4252,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Haa, bitti bitti. Kolayd\u0131."
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -4291,11 +4396,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -4307,20 +4412,20 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Afferim. Ak\u015Fam \xE7\u0131k\u0131\u015Fta yandaki parka gel.
           Bekliyorum."
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: EventGuid
         value: 5fcaf6ee-7066-4645-b61f-b45af2cebec4
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -4336,8 +4441,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 637.3937
-        y: 494.88754
+        x: 645.5472
+        y: 511.0318
         width: 160
         height: 30
     - id: 27
@@ -4512,11 +4617,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -4528,14 +4633,18 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Bekle o\u011Flum sen. Tek tak\u0131lma bundan sonra. Mazallah arkadan
           biri b\xF6bre\u011Fine takar falan. Yaz\u0131k olur."
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
+        type: 0
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 5b882702-5edc-4e54-afa6-3c35c4605029
         type: 0
         typeString: 
       conversationID: 3
@@ -4562,11 +4671,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -4578,15 +4687,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "La yok istemiyom. Ba\u015Fka kap\u0131ya."
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -4603,7 +4712,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 550.80585
-        y: 704.07275
+        y: 702.5802
         width: 160
         height: 30
     - id: 32
@@ -4816,7 +4925,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 765.99115
+        x: 758.3818
         y: 867.05414
         width: 160
         height: 30
@@ -4882,11 +4991,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -4898,21 +5007,21 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "HAHAAHAAHA. Saf m\u0131s\u0131n olum sen. Bu i\u015Fin arkas\u0131nda
           ben mi var\u0131m sence? \xC7ok b\xFCy\xFCk hata yapt\u0131n. Son saatlerinin
           tad\u0131n\u0131 \xE7\u0131kar. "
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: EventGuid
         value: 0ee9e3b8-351a-4a28-b93f-baf181f2f4a6
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 3
       isRoot: 0
       isGroup: 0
@@ -4933,8 +5042,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 56.716248, y: 441.50848}
-    canvasZoom: 0.6700003
+    canvasScrollPosition: {x: 194.54523, y: 363.00787}
+    canvasZoom: 0.55000055
   - id: 4
     fields:
     - title: Title
@@ -5805,8 +5914,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 430.2386, y: 245.57182}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 384.74152, y: 258.17862}
+    canvasZoom: 0.7900002
   - id: 6
     fields:
     - title: Title
@@ -7217,8 +7326,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "\u015Eu k\xF6\u015Fede duran artis kim? Mekan\u0131n sahibi gibi
-          gezinip duruyo?"
+        value: "\u015Eu tahtan\u0131n \xF6n\xFCnde duran artis kim? Mekan\u0131n
+          sahibi gibi gezinip duruyo?"
         type: 0
         typeString: 
       - title: Sequence
@@ -7481,18 +7590,18 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 3.9473877, y: 5.263153}
+    canvasScrollPosition: {x: 11.842102, y: 218.42099}
     canvasZoom: 0.7600002
   - id: 8
     fields:
     - title: Title
       value: PartyBQuest
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Actor
       value: 1
       type: 5
@@ -8392,11 +8501,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -8408,16 +8517,16 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\u0130\u015Fin buraya varaca\u011F\u0131n\u0131 tahmin etmi\u015Ftim.
           Vatan i\xE7in bunu yapmaya raz\u0131y\u0131m."
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: SetActive(Voters,true)
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 8
       isRoot: 0
       isGroup: 0
@@ -8433,7 +8542,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: "SetQuestState(\"Parti G\xF6revi 2\", \"active\");\nShowAlert(\"Yeni
+        g\xF6rev: 4 A partili reddet.\")"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -8559,11 +8669,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 1
         type: 5
@@ -8575,17 +8685,17 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Tamam ulan. Harbi hakl\u0131s\u0131n. \xDClkem i\xE7in, MEMMMMLEKET\u0130M
           \u0130\xC7\u0130N, GELECE\u011E\u0130M \u0130\xC7\u0130N, evrakda sahtecilik
           yapmay\u0131 kabul ediyorum......"
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
-        value: 
+        value: SetActive(Voters,true)
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 8
       isRoot: 0
       isGroup: 0
@@ -8601,14 +8711,15 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: "SetQuestState(\"Parti G\xF6revi 2\", \"active\");\nShowAlert(\"Yeni
+        g\xF6rev: 4 A partili reddet.\")"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 735.0658
-        y: 824.3283
+        x: 733.42645
+        y: 822.8997
         width: 160
         height: 30
     - id: 19
@@ -8616,11 +8727,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -8632,17 +8743,21 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Aynen \xF6yle. Senin gibi babayi\u011Fitler \xFClkenin karanl\u0131k
           y\xFCzlerisiniz. Karanl\u0131kta \xE7al\u0131\u015F\u0131p ayd\u0131nl\u0131\u011F\u0131
           desteklersiniz. Hadi ko\xE7um benim. FOR THE GREATER GOOD."
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 1ba21afb-cbc1-4bde-ad0e-6c314ce93b77
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 8
       isRoot: 0
       isGroup: 0
@@ -8953,8 +9068,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2446.091
-        y: 37.28605
+        x: 2506.9607
+        y: 122.06868
         width: 160
         height: 30
     - id: 25
@@ -9001,7 +9116,8 @@ MonoBehaviour:
         destinationDialogueID: 26
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["NumberOfPartyARejections"] >= 4 and (Variable["NumberOfPartyBRejections"]
+        < 1)
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9009,7 +9125,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1271.044
-        y: 484.1997
+        y: 485.56958
         width: 160
         height: 30
     - id: 26
@@ -9017,11 +9133,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 2
         type: 5
@@ -9033,17 +9149,21 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "Adam\u0131m benim. Babayi\u011Fit, KO\xC7\xC7\xC7\xC7. Yapabilece\u011Fini
           biliyodum. Merak etme ilerde bu yapt\u0131klar\u0131n\u0131n de\u011Feri
           anla\u015F\u0131lacak, vatan seninle gurur duyacak!!!!"
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
+      - title: EventGuid
+        value: 4d99bb5e-f737-4b8b-91fd-73a1cdf08584
+        type: 0
+        typeString: CustomFieldType_Text
       conversationID: 8
       isRoot: 0
       isGroup: 0
@@ -9053,14 +9173,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: "SetQuestState(\"Parti G\xF6revi 2\", \"success\")"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1269.6155
-        y: 554.1996
+        x: 1271.5386
+        y: 553.6464
         width: 160
         height: 30
     - id: 27
@@ -9108,7 +9228,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["NumberOfPartyARejections"] < 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9318,6 +9438,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: EventGuid
+        value: ce454333-d004-422a-aedd-4fc10e59a52a
+        type: 0
+        typeString: 
       conversationID: 8
       isRoot: 0
       isGroup: 0
@@ -9327,7 +9451,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: "SetQuestState(\"Parti G\xF6revi 2\", \"failure\")"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -9382,8 +9506,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1835.3295
-        y: 495.62833
+        x: 1844.9185
+        y: 513.4366
         width: 160
         height: 30
     - id: 33
@@ -9432,7 +9556,7 @@ MonoBehaviour:
         destinationDialogueID: 34
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: Variable["NumberOfPartyBRejections"] >= 1
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9440,7 +9564,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 2189.2195
-        y: 499.7319
+        y: 501.2944
         width: 160
         height: 30
     - id: 34
@@ -9593,6 +9717,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: EventGuid
+        value: dc9ef5dd-bbb7-4dc0-8c77-8970de77a651
+        type: 0
+        typeString: 
       conversationID: 8
       isRoot: 0
       isGroup: 0
@@ -9602,14 +9730,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: "SetQuestState(\"Parti G\xF6revi 2\", \"failure\")"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2025.2845
-        y: 717.31506
+        x: 2075.9697
+        y: 722.7945
         width: 160
         height: 30
     - id: 38
@@ -9699,6 +9827,10 @@ MonoBehaviour:
         value: 
         type: 0
         typeString: 
+      - title: EventGuid
+        value: a0c2de74-c0db-458c-b9d7-566b71d985ee
+        type: 0
+        typeString: 
       conversationID: 8
       isRoot: 0
       isGroup: 0
@@ -9708,14 +9840,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: "SetQuestState(\"Parti G\xF6revi 2\", \"failure\")"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2334.4343
-        y: 719.2888
+        x: 2294.7083
+        y: 723.39844
         width: 160
         height: 30
     - id: 40
@@ -9763,13 +9895,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2449.3696
-        y: 118.43356
+        x: 2510.2393
+        y: 209.73795
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.6099999
+    canvasScrollPosition: {x: 1145.3989, y: 68.40497}
+    canvasZoom: 0.5199999
   - id: 9
     fields:
     - title: Title
@@ -10138,6 +10270,269 @@ MonoBehaviour:
         serializedVersion: 2
         x: 160
         y: 279
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
+  - id: 10
+    fields:
+    - title: Title
+      value: OyVerme
+      type: 0
+      typeString: 
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: Actor
+      value: 1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: 2
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      emTagForOldResponses: 0
+      emTagForInvalidResponses: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 0
+        destinationConversationID: 10
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 30
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Hangi partiye oy vermek istersiniz?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 1
+        destinationConversationID: 10
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      - originConversationID: 10
+        originDialogueID: 1
+        destinationConversationID: 10
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 160
+        height: 30
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: A Partisi
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 41
+        y: 140
+        width: 160
+        height: 30
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: B Partisi
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 10
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 300
+        y: 142
         width: 160
         height: 30
     entryGroups: []
