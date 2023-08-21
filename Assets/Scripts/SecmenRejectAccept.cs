@@ -7,6 +7,8 @@ public class SecmenRejectAccept : MonoBehaviour
     [HideInInspector]
     public int isRejected = 0;
     [HideInInspector]
+    public bool isPolice_MissionEnded = false;
+    [HideInInspector]
     public bool isPartyA_MissionEnded = false;
     [HideInInspector]
     public bool isPartyA_MissionAccepted = false;
@@ -77,7 +79,7 @@ public class SecmenRejectAccept : MonoBehaviour
     public void AcceptPartyAQuest()
     {
         isPartyA_MissionAccepted = true;
-        Debug.Log("Quest accepted");
+        Debug.Log("Quest A accepted");
     }
 
     public void PartAQuestEnded()
@@ -102,7 +104,7 @@ public class SecmenRejectAccept : MonoBehaviour
     public void AcceptPartyBQuest()
     {
         isPartyB_MissionAccepted = true;
-        Debug.Log("Quest accepted");
+        Debug.Log("Quest B accepted");
     }
 
     public void PartBQuestEnded()
@@ -122,6 +124,11 @@ public class SecmenRejectAccept : MonoBehaviour
     {
         isPartyB_MissionEnded = false;
         Debug.Log("Quest failed");
+    }
+
+    public void PoliceQuestEnded()
+    {
+        isPolice_MissionEnded = true;
     }
 
 

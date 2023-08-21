@@ -3492,6 +3492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -8621,7 +8622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 17a494469dbb2a549bae2381b36dcf01, type: 3}
       propertyPath: m_Name
-      value: "Y\u0131ld\u0131r\u0131m U\u011Furlu"
+      value: "Y\u0131ld\u0131r\u0131m U\u011Furlu (B)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 17a494469dbb2a549bae2381b36dcf01, type: 3}
       propertyPath: m_Layer
@@ -9669,7 +9670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: B
       objectReference: {fileID: 0}
     - target: {fileID: 1082271958561512970, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
       propertyPath: m_Layer
@@ -10047,6 +10048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -10295,6 +10297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -11391,7 +11394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
       propertyPath: m_Name
-      value: Ahmet Demirci
+      value: Ahmet Demirci (A)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
       propertyPath: m_Layer
@@ -12310,6 +12313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -13744,6 +13748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -14989,7 +14994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
       propertyPath: m_Name
-      value: Binnaz Taner
+      value: Binnaz Taner (B)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
       propertyPath: m_Layer
@@ -16143,6 +16148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -17128,7 +17134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 15741faa13f9dbe4ea9d2505934bc45d, type: 3}
       propertyPath: m_Name
-      value: "Sevda \xC7etin"
+      value: "Sevda \xC7etin (A)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 15741faa13f9dbe4ea9d2505934bc45d, type: 3}
       propertyPath: m_Layer
@@ -18913,7 +18919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9b28deda82f183d468bfd2f88b66d044, type: 3}
       propertyPath: m_Name
-      value: "A\xE7elya Y\u0131ld\u0131r\u0131m"
+      value: "A\xE7elya Y\u0131ld\u0131r\u0131m (A)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9b28deda82f183d468bfd2f88b66d044, type: 3}
       propertyPath: m_Layer
@@ -19273,6 +19279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -20197,7 +20204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972957757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 329.99, y: 4.36, z: 151.88}
+  m_LocalPosition: {x: 4.9354773, y: 5.08, z: 31.4}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22597,6 +22604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -23272,7 +23280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: db3edfce22a1b764e9bc7ee400bf996a, type: 3}
       propertyPath: m_Name
-      value: Ceyda Durak
+      value: Ceyda Durak (B)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: db3edfce22a1b764e9bc7ee400bf996a, type: 3}
       propertyPath: m_Layer
@@ -23284,7 +23292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: db3edfce22a1b764e9bc7ee400bf996a, type: 3}
       propertyPath: m_TagString
-      value: B
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 1082271958561512970, guid: db3edfce22a1b764e9bc7ee400bf996a, type: 3}
       propertyPath: m_Layer
@@ -23482,7 +23490,7 @@ MonoBehaviour:
   setAnotherQuestEntryState: 0
   anotherQuestEntryNumber: 1
   anotherQuestEntryState: 0
-  luaCode: Variable["NumberOfPartyBRejections"] = Variable["NumberOfPartyBRejections"]
+  luaCode: Variable["NumberOfPartyARejections"] = Variable["NumberOfPartyARejections"]
     + 1
   sequence: 
   sequenceSpeaker: {fileID: 0}
@@ -23612,6 +23620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -23847,7 +23856,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       propertyPath: m_Name
-      value: "Bur\xE7in Mumcu"
+      value: "Bur\xE7in Mumcu (A)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       propertyPath: m_Layer
@@ -23859,7 +23868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       propertyPath: m_TagString
-      value: A_Fraud
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 1161837160611805812, guid: 27b819b85c2f43a40975d86c52e843ab, type: 3}
       propertyPath: m_Layer
@@ -24232,6 +24241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -24847,7 +24857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb1a3ca970bf85e47bbf314954fd97ae, type: 3}
       propertyPath: m_Name
-      value: "Kuzey Tekino\u011Flu"
+      value: "Kuzey Tekino\u011Flu (A)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb1a3ca970bf85e47bbf314954fd97ae, type: 3}
       propertyPath: m_Layer
@@ -25183,6 +25193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -25430,7 +25441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
       propertyPath: m_Name
-      value: "Murat Ta\u015Fdelen"
+      value: "Murat Ta\u015Fdelen (A)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 44dbb8c476d4c774f8844745e3a70355, type: 3}
       propertyPath: m_Layer
@@ -26850,6 +26861,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1558606121}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1558606123}
   m_SourcePrefab: {fileID: 100100000, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
 --- !u!4 &1171141277 stripped
 Transform:
@@ -27404,7 +27418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec399675e834e4d4ba2aeecd39acd8de, type: 3}
       propertyPath: m_Name
-      value: "\xD6yk\xFC Bal"
+      value: "\xD6yk\xFC Bal (B)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec399675e834e4d4ba2aeecd39acd8de, type: 3}
       propertyPath: m_Layer
@@ -27752,6 +27766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -28063,7 +28078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204876348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.05, y: 0.617, z: -21.71}
+  m_LocalPosition: {x: 5.05, y: 0.617, z: -1.27}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29628,7 +29643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 538922b03f65e09448cf647d0f9badb1, type: 3}
       propertyPath: m_Name
-      value: "Sevin\xE7 Aydemir"
+      value: "Sevin\xE7 Aydemir (B)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 538922b03f65e09448cf647d0f9badb1, type: 3}
       propertyPath: m_Layer
@@ -32030,7 +32045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
       propertyPath: m_Name
-      value: Elmas Samdereli
+      value: Elmas Samdereli (B)
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c563aa3be12082d4d80d5a66327535f5, type: 3}
       propertyPath: m_Layer
@@ -32387,6 +32402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -32592,6 +32608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -33855,9 +33872,21 @@ MonoBehaviour:
   onExecute:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1558606109}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1558606123}
+        m_TargetAssemblyTypeName: DestroyNpc, Assembly-CSharp
+        m_MethodName: DestroyObj
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1558606115}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33884,6 +33913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -33901,6 +33931,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ssn: 0
+--- !u!114 &1558606123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558606109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284214e39dc1b1749b0a3533b8160016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deskTransform: {fileID: 1126418548}
 --- !u!1 &1566723564
 GameObject:
   m_ObjectHideFlags: 0
@@ -35884,8 +35927,8 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
+        - m_Target: {fileID: 2013800736}
+          m_TargetAssemblyTypeName: QuestEnd, Assembly-CSharp
           m_MethodName: PartAQuestEnded
           m_Mode: 1
           m_Arguments:
@@ -35980,7 +36023,7 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 669328846}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: AcceptPartyBQuest
           m_Mode: 1
@@ -35996,8 +36039,8 @@ MonoBehaviour:
     onExecute:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
+        - m_Target: {fileID: 2013800736}
+          m_TargetAssemblyTypeName: QuestEnd, Assembly-CSharp
           m_MethodName: PartBQuestEnded
           m_Mode: 1
           m_Arguments:
@@ -36047,6 +36090,54 @@ MonoBehaviour:
         - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: SecmenRejectAccept, Assembly-CSharp
           m_MethodName: PartyBQuestFailed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: 000fb088-6f19-42f5-a4fd-8fd3b3f1cfe0
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800736}
+          m_TargetAssemblyTypeName: QuestEnd, Assembly-CSharp
+          m_MethodName: PoliceQuestEnded
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: 699dc921-d90d-4301-9d11-19d719fe12c3
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800736}
+          m_TargetAssemblyTypeName: QuestEnd, Assembly-CSharp
+          m_MethodName: PoliceQuestFailed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - guid: ac564280-7483-40cd-b2f9-f301d0a573b2
+    onExecute:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2013800736}
+          m_TargetAssemblyTypeName: QuestEnd, Assembly-CSharp
+          m_MethodName: PoliceQuestFailed
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -36309,7 +36400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
       propertyPath: m_Name
-      value: "Bilge Aky\xFCz"
+      value: "Bilge Aky\xFCz (A)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 39c463133b497b0408fb71e1e84389f8, type: 3}
       propertyPath: m_Layer
@@ -37790,6 +37881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
@@ -41311,6 +41403,7 @@ GameObject:
   - component: {fileID: 2013800732}
   - component: {fileID: 2013800733}
   - component: {fileID: 2013800735}
+  - component: {fileID: 2013800736}
   m_Layer: 0
   m_Name: Voters
   m_TagString: Untagged
@@ -41398,6 +41491,21 @@ MonoBehaviour:
   rejectedPartyAFalse: 0
   rejectedPartyB: 0
   rejectedPartyBFalse: 0
+--- !u!114 &2013800736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013800731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafbf89bb0b0dbf4a94004b93b486748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPartyA_MissionEnded: 0
+  isPartyB_MissionEnded: 0
+  isPolice_MissonEnded: 0
 --- !u!1 &2014280600
 GameObject:
   m_ObjectHideFlags: 0
@@ -42079,7 +42187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
       propertyPath: m_Name
-      value: "M\xFCcahit K\xF6pr\xFCl\xFC"
+      value: "M\xFCcahit K\xF6pr\xFCl\xFC (B)"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 67411f3c9fe5fde46b58598717bc217c, type: 3}
       propertyPath: m_Layer
@@ -43634,6 +43742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRejected: 0
+  isPolice_MissionEnded: 0
   isPartyA_MissionEnded: 0
   isPartyA_MissionAccepted: 0
   isPartyB_MissionEnded: 0
